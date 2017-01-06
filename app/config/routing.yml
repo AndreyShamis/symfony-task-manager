@@ -1,0 +1,11 @@
+werd_finance_company:
+    resource: "@WerdFinanceBundle/Controller/CompanyController.php"
+    type:     annotation
+
+werd_finance:
+    resource: "@WerdFinanceBundle/Resources/config/routing.php"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

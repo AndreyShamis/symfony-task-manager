@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Companies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Webpage</th>
+                <th>Tradeas</th>
+                <th>Industry</th>
+                <th>Founded</th>
+                <th>Numberofemployees</th>
+                <th>Symbol</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+            <tr>
+                <td><a href="{{ path('company_show', { 'id': company.id }) }}">{{ company.id }}</a></td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.webPage }}</td>
+                <td>{% if company.tradeAs %}{{ company.tradeAs|join(', ') }}{% endif %}</td>
+                <td>{{ company.industry }}</td>
+                <td>
+                    {#{{ company.founded }}#}
+                </td>
+                <td>{{ company.numberOfEmployees }}</td>
+                <td>{{ company.symbol }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('company_show', { 'id': company.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('company_edit', { 'id': company.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('company_new') }}">Create a new company</a>
+        </li>
+    </ul>
+{% endblock %}
