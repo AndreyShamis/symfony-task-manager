@@ -1,3 +1,7 @@
+werd_finance_stock_data:
+    resource: "@WerdFinanceBundle/Controller/StockDataController.php"
+    type:     annotation
+
 werd_finance_company:
     resource: "@WerdFinanceBundle/Controller/CompanyController.php"
     type:     annotation

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stockdatum</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stockDatum.id }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ stockDatum.company }}</td>
+            </tr>
+            <tr>
+                <th>Tradedate</th>
+                <td>{% if stockDatum.tradeDate %}{{ stockDatum.tradeDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tradetime</th>
+                <td>{% if stockDatum.tradeTime %}{{ stockDatum.tradeTime|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tradeprice</th>
+                <td>{{ stockDatum.tradePrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stockdata_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('stockdata_edit', { 'id': stockDatum.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

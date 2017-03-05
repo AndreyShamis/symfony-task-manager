@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stockdatas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Company</th>
+                <th>Tradedate</th>
+                <th>Tradetime</th>
+                <th>Tradeprice</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stockDatum in stockDatas %}
+            <tr>
+                <td><a href="{{ path('stockdata_show', { 'id': stockDatum.id }) }}">{{ stockDatum.id }}</a></td>
+                <td>{{ stockDatum.company }}</td>
+                <td>{% if stockDatum.tradeDate %}{{ stockDatum.tradeDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if stockDatum.tradeTime %}{{ stockDatum.tradeTime|date('H:i:s') }}{% endif %}</td>
+                <td>{{ stockDatum.tradePrice }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('stockdata_show', { 'id': stockDatum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('stockdata_edit', { 'id': stockDatum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stockdata_new') }}">Create a new stockDatum</a>
+        </li>
+    </ul>
+{% endblock %}
