@@ -31,7 +31,7 @@ class Target
     /**
      * @var bool
      *
-     * @ORM\Column(name="managed", type="boolean", options={"default" : false})
+     * @ORM\Column(name="managed", type="boolean", options={"default" : true})
      */
     private $managed;
 
