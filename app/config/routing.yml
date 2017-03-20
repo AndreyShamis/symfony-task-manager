@@ -1,3 +1,7 @@
+tester:
+    resource: "@TesterBundle/Resources/config/routing.xml"
+    prefix:   /
+
 werd_finance_stock_data:
     resource: "@WerdFinanceBundle/Controller/StockDataController.php"
     type:     annotation
