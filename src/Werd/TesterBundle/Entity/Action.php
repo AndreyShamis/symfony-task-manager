@@ -48,11 +48,10 @@ class Action
     private $osState;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="state", type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\PromptState")
+     * @ORM\JoinColumn(name="state", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
-    private $state;
+    private $state = "idle";
 
     /**
      * @var bool
@@ -69,44 +68,38 @@ class Action
     private $skipMessage = "";
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="on_fail", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\SkipMode")
+     * @ORM\JoinColumn(name="on_fail", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $onFail;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="on_error", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\SkipMode")
+     * @ORM\JoinColumn(name="on_error", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $onError;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="on_warning", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\SkipMode")
+     * @ORM\JoinColumn(name="on_warning", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $onWarning;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="verdict_on_error", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\ActionVerdict")
+     * @ORM\JoinColumn(name="verdict_on_error", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $verdictOnError;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="verdict_on_fail", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\ActionVerdict")
+     * @ORM\JoinColumn(name="verdict_on_fail", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $verdictOnFail;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="verdict_on_warning", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Werd\TesterBundle\Entity\ActionVerdict")
+     * @ORM\JoinColumn(name="verdict_on_warning", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      */
     private $verdictOnWarning;
 
