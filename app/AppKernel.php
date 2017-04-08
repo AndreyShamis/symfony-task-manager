@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Werd\FinanceBundle\WerdFinanceBundle(),
             new Werd\TesterBundle\TesterBundle(),
+            new Werd\IotBundle\IotBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
