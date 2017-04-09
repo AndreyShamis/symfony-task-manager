@@ -1,0 +1,6 @@
+{% stylesheets filter="less"
+"../app/Resources/public/css/front.less"
+%}
+<link rel="stylesheet" type="text/css" href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ asset_url }}" >
+
+{% endstylesheets %}

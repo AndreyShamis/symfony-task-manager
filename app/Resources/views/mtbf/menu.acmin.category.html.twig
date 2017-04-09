@@ -1,0 +1,130 @@
+
+<li class="{% if route in ['wlogsetupbuild_index','wlogsetupbuild_show','wlogbuild_index','wlogbuild_edit','wlogbuild_show','wlogsetup_index','wlogsetup_show','testresult','actionresult','ssidname','actionname'] %}active{% endif %}">
+    <a href="#" class="dropdown-toggle">
+        <i class="menu-icon fa fa-desktop"></i>
+        <span class="menu-text">Admin </span>
+        <b class="arrow fa fa-angle-down"></b>
+    </a>
+    <b class="arrow"></b>
+    <ul class="submenu">
+
+
+        <li class="{% if route starts with 'deliberate_from_wlog' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">
+                <i class="menu-icon fa fa-caret-right"></i>Unrecoverable From WLOG
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        {#<li class="{% if route starts with 'usecasename' %}active{% endif %}">#}
+            {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('usecasename') }}">#}
+                {#<i class="menu-icon fa fa-caret-right"></i>UC Names#}
+            {#</a>#}
+            {#<b class="arrow"></b>#}
+        {#</li>#}
+
+        <li class="{% if route starts with 'actionname' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionname') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Action Names
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="{% if route starts with 'ssidname' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('ssidname') }}">
+                <i class="menu-icon fa fa-caret-right"></i>SSID Names
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="{% if route starts with 'actionresult' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionresult') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Action Results
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="{% if route == 'testresult' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('testresult') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Test Results
+            </a>
+            <b class="arrow"></b>
+        </li>
+        <li class="{% if route starts with 'wlogsetupbuild_' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetupbuild_index') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Wlog Setup Builds
+            </a>
+            <b class="arrow"></b>
+        </li>
+        <li class="{% if route starts with 'wlogsetup_' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetup_index') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Wlog Setups
+            </a>
+            <b class="arrow"></b>
+        </li>
+        <li class="{% if route starts with 'wlogbuild_' %}active{% endif %}">
+            <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogbuild_index') }}">
+                <i class="menu-icon fa fa-caret-right"></i>Wlog Builds
+            </a>
+            <b class="arrow"></b>
+        </li>
+        {#<li class="{% if route == 'actionparameter' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionparameter') }}">#}
+        {#<i class="menu-icon fa fa-caret-right"></i>Action Params#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+        {#</li>#}
+
+        {#<li class="{% if app.request.attributes.get('_route') == 'actionresultdescription' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionresultdescription') }}">#}
+        {#<i class="menu-icon fa fa-caret-right"></i>Action Result desc#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+        {#</li>#}
+
+        {#<li class="">#}
+        {#<a href="#" class="dropdown-toggle">#}
+        {#<i class="menu-icon fa fa-caret-right"></i>Three Level Menu#}
+        {#<b class="arrow fa fa-angle-down"></b>#}
+        {#</a>#}
+
+        {#<b class="arrow"></b>#}
+
+        {#<ul class="submenu">#}
+        {#<li class="">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('_actionnative') }}">#}
+        {#<i class="menu-icon fa fa-leaf green"></i>Actions#}
+        {#<span class="badge badge-transparent tooltip-error" title="Slow show. Can take few minutes to show all content">#}
+        {#<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>#}
+        {#</span>#}
+        {#</a>#}
+
+        {#<b class="arrow"></b>#}
+        {#</li>#}
+        {#<li class="">#}
+        {#<a href="#" class="dropdown-toggle">#}
+        {#<i class="menu-icon fa fa-pencil orange"></i>4th level#}
+        {#<b class="arrow fa fa-angle-down"></b>#}
+        {#</a>#}
+
+        {#<b class="arrow"></b>#}
+        {#<ul class="submenu">#}
+        {#<li class="">#}
+        {#<a href="#">#}
+        {#<i class="menu-icon fa fa-plus purple"></i>Add Product#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+        {#</li>#}
+
+        {#<li class="">#}
+        {#<a href="#">#}
+        {#<i class="menu-icon fa fa-eye pink"></i>View Products#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+        {#</li>#}
+        {#</ul>#}
+        {#</li>#}
+        {#</ul>#}
+        {#</li>#}
+    </ul>
+</li>

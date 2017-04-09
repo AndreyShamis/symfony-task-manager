@@ -27,11 +27,11 @@ tester_action:
     type:     annotation
 iot:
     resource: "@IotBundle/Resources/config/routing.xml"
-    prefix:   /
+    prefix:   /iot
 
 tester:
     resource: "@TesterBundle/Resources/config/routing.xml"
-    prefix:   /
+    prefix:   /tester
 
 werd_finance_stock_data:
     resource: "@WerdFinanceBundle/Controller/StockDataController.php"
@@ -43,8 +43,8 @@ werd_finance_company:
 
 werd_finance:
     resource: "@WerdFinanceBundle/Resources/config/routing.php"
-    prefix:   /
+    prefix:   /finance
 
 app:
     resource: "@AppBundle/Controller/"
-    type:     annotation
+    prefix:   /

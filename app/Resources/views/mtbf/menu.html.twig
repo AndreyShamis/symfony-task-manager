@@ -1,0 +1,187 @@
+<script type="text/javascript">
+    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+</script>
+
+{% set route = app.request.get('_route') %}
+
+<ul class="nav nav-list  nav-sidebar">
+    <li class="{% if route == 'idefault_index' %}active{% endif %}">
+        <a href="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ path('default_index') }}">
+            <i class="menu-icon fa fa-tachometer"></i>
+            <span class="menu-text">Home</span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route starts with 'cycle' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('cycle') }}">
+            <i class="menu-icon fa fa-list-alt"></i>
+            <span class="menu-text bigger-120"> Cycles </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route starts with 'report_' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('report_index') }}">
+            <i class="menu-icon fa fa-calendar"></i>
+            <span class="menu-text  bigger-120">Reports
+            </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route == 'setup' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('setup') }}">
+            <i class="menu-icon fa fa-picture-o"></i>
+            <span class="menu-text"> Setups </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route starts with 'bkc' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('bkc') }}">
+            <i class="menu-icon fa fa-list"></i>
+            <span class="menu-text"> BKC </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route starts with 'cq_' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('cq_index') }}" >
+            <i class="menu-icon fa fa-pencil-square-o"></i>
+            <span class="menu-text"> CQ </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    <li class="{% if route starts with 'event_' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('event_index') }}" >
+            <i class="menu-icon fa fa-tag"></i>
+            <span class="menu-text">Events</span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+
+    <li class="{% if route starts with 'dut' %}active{% endif %}">
+        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('dut') }}" >
+            <i class="menu-icon fa fa-file-o"></i>
+            <span class="menu-text">DUT
+                {#<span class="badge badge-primary">5</span>#}
+            </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
+
+    {# ################################### Controll ################################### #}
+    <li class="{% if route in ['wlogsetupbuild_index','wlogsetup_edit','wlogsetupbuild_show','wlogsetup_index','wlogsetup_show','dca','usecasename','usecasename_show','usecasename_edit','actionresultdescription','actionparameter','actionname','platform','adapter','os','poa','poa_show','poa_index','core','core_index','core_show'] %}active{% endif %}">
+        <a href="#" class="dropdown-toggle">
+            <i class="menu-icon fa fa-desktop"></i>
+            <span class="menu-text">Controll </span>
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+        <b class="arrow"></b>
+
+        <ul class="submenu ">
+            <li class="
+{% if route starts with 'platform' %}active{% endif %}
+{% if route starts with 'adapter' %}active{% endif %}
+{% if route starts with 'os' %}active{% endif %}
+{% if route starts with 'poa' %}active{% endif %}
+{% if route starts with 'core' %}active{% endif %}
+">
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-caret-right"></i>POA
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+                <b class="arrow"></b>
+                <ul class="submenu">
+                    <li class="{% if route starts with 'platform' %}active{% endif %}">
+                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('platform') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>Platforms
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="{% if route starts with 'adapter' %}active{% endif %}">
+                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('adapter') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>Adapters
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="{% if route starts with 'os' %}active{% endif %}">
+                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('os') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>OS
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="{% if route starts with 'poa_' %}active{% endif %}">
+                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('poa') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>POA
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="{% if route starts with 'core_)' %}active{% endif %}">
+                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('core_index') }}">
+                            <i class="menu-icon fa fa-caret-right"></i>Cores
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="{% if route starts with 'dca' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('dca') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>DCA
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+            <li class="{% if route starts with 'usecasename' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('usecasename') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>UC Names
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+            <li class="{% if route starts with 'wlogsetupbuild_' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetupbuild_index') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>Wlog Setup Builds
+                </a>
+                <b class="arrow"></b>
+            </li>
+            <li class="{% if route starts with 'wlogsetup_' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetup_index') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>Wlog Setups
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+            <li class="{% if route == 'actionparameter' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionparameter') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>Action Params
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+            <li class="{% if app.request.attributes.get('_route') == 'actionresultdescription' %}active{% endif %}">
+                <a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('actionresultdescription') }}">
+                    <i class="menu-icon fa fa-caret-right"></i>Action Result desc
+                </a>
+                <b class="arrow"></b>
+            </li>
+
+        </ul>
+    </li>
+
+
+
+</ul><!-- /.nav-list -->
+
+<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+    <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+</div>
+
+<script type="text/javascript">
+    try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+</script>

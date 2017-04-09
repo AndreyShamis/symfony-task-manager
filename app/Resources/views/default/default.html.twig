@@ -1,0 +1,178 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WERD TM</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    <li><a href="">More navigation</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('PATH') }}"> 1221</a></li>
+                    <li><a href="">More navigation</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">Nav item again</a></li>
+                </ul>
+            </div>
+            {% block content %}
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Dashboard</h1>
+
+                    <div class="row placeholders">
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 placeholder">
+                            <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span>
+                        </div>
+                    </div>
+
+                    <h2 class="sub-header">Section title</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Header</th>
+                                <th>Header</th>
+                                <th>Header</th>
+                                <th>Header</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1,001</td>
+                                <td>Lorem</td>
+                                <td>ipsum</td>
+                                <td>dolor</td>
+                                <td>sit</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endblock %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar">2</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">reporting tool </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Settings</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-1 sidebar" >
+                <ul class="nav nav-sidebar">
+                    <li><a style="color: #00CC00;" href="{{ path('cycle') }}" > * Cycles</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('setup') }}" >Setups</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('bkc') }}" >BKC</a></li>
+                    <li><a style="color: #00CC00;" href="" >_</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('dut') }}" > * DUT</a></li>
+
+                    <li><a style="color: #00CC00;" href="{{ path('platform') }}" >Platforms</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('adapter') }}" >Adapters</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('os') }}" >OS</a></li>
+
+                    <li><a style="color: #00CC00;" href="{{ path('dca') }}" >DCA</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('usecasename') }}" >Use Case Names</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('actionname') }}" >Action Names</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('ssidname') }}">SSID Names</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('actionresult') }}">Action Results</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('testresult') }}">Test Results</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('core') }}">Cores</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('actionparameter') }}">Action Params</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('actionresultdescription') }}">Action Result desc</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('actionnative') }}">Action Native</a></li>
+                    <li><a style="color: #00CC00;" href="{{ path('usecasenative') }}">UseCase Native</a></li>
+                    <li><a href="#" onclick="">Events</a></li>
+                    <li><a href="#" onclick="">Help</a></li>
+                    <li><a href="#" onclick="">About</a></li>
+                </ul>
+            </div>
+            <div id ="content" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+                {% block content %}
+
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            {% block documentReady %}
+
+            {% endblock documentReady %}
+        });
+    </script>
+{% endblock %}

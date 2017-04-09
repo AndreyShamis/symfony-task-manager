@@ -38,6 +38,25 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    cache: false
+    globals:
+            #admin_service: "@admin"
+            max_timeline_height: 2500
+    number_format:
+            decimals: 2
+            decimal_point: '.'
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    filters:
+        less:
+            #node:       "%node_bin%"
+            #node_paths: ["%node_lib%"]
+            #apply_to: "\.less$"
+        cssrewrite: ~
+            #apply_to: "\.css$"
 
 # Doctrine Configuration
 doctrine:
