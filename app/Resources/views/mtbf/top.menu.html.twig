@@ -12,10 +12,10 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ path('default_index') }}" class="navbar-brand">
+            <a href="{{ app.request.scheme ~'://' ~ app.request.httpHost}}" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    SST 2.0
+                    WEB IoT
                 </small>
             </a>
         </div>
@@ -25,33 +25,33 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="/assets/avatars/mycomputer.png" alt="User Photo" />
+                        <img class="nav-user-photo" src="{{app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getBaseURL }}/assets/avatars/mycomputer.png" alt="User Photo" />
                             <span class="user-info">
 									<small>Welcome,</small>
-                                {% if admin_service.isAdmin != 1 %}
-                                    User
-                                {% endif %}
-                                {% if admin_service.isAdmin == 1 %}
-                                    Admin
-                                {% endif %}
-								</span>
+                                {#{% if admin_service.isAdmin != 1 %}#}
+                                    {#User#}
+                                {#{% endif %}#}
+                                {#{% if admin_service.isAdmin == 1 %}#}
+                                    {#Admin#}
+                                {#{% endif %}#}
+								{#</span>#}
 
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            {% if admin_service.isAdmin != 1 %}
-                            <a href="/adminIndex">
-                                <i class="ace-icon fa fa-cog"></i>
-                                Admin
-                            </a>
-                            {% else %}
-                            <a href="/adminLogout">
-                                <i class="ace-icon fa fa-cog"></i>
-                                Logout
-                            </a>
-                            {% endif %}
+                            {#{% if admin_service.isAdmin != 1 %}#}
+                            {#<a href="/adminIndex">#}
+                                {#<i class="ace-icon fa fa-cog"></i>#}
+                                {#Admin#}
+                            {#</a>#}
+                            {#{% else %}#}
+                            {#<a href="/adminLogout">#}
+                                {#<i class="ace-icon fa fa-cog"></i>#}
+                                {#Logout#}
+                            {#</a>#}
+                            {#{% endif %}#}
                         </li>
 
                         <li>

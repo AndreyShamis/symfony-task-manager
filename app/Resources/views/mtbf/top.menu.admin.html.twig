@@ -279,7 +279,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="/assets/avatars/mycomputer.png" alt="User Photo" />
+                        <img class="nav-user-photo" src="{{app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getBaseURL }}/assets/avatars/mycomputer.png" alt="User Photo" />
                         <span class="user-info">
 									<small>Welcome,</small>
 									Jason

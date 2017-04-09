@@ -14,12 +14,12 @@
         <div id="sidebar" class="sidebar responsive">
 
 
-            {% if admin_service.isAdmin != 1 %}
+            {#{% if admin_service.isAdmin != 1 %}#}
                 {% include ':mtbf:menu.html.twig' %}
-            {% endif %}
-            {% if admin_service.isAdmin == 1 %}
-                {% include ':mtbf:menu.admin.html.twig' %}
-            {% endif %}
+            {#{% endif %}#}
+            {#{% if admin_service.isAdmin == 1 %}#}
+                {#{% include ':mtbf:menu.admin.html.twig' %}#}
+            {#{% endif %}#}
 
         </div>
 
@@ -123,7 +123,6 @@
                                                 {#<button class="btn btn-sm" type="button">Go!</button>#}
                                             {#</form>#}
 
-                                            <h4>Maintained by <strong>Avital Shafran</strong></h4>
                                             <div class="space"></div>
                                             <h4 class="smaller">List:</h4>
 
