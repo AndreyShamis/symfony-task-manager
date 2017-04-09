@@ -63,4 +63,3 @@ class OsState
         return $this->name;
     }
 }
-

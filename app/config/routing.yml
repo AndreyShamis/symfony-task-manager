@@ -1,3 +1,31 @@
+tester_target:
+    resource: "@TesterBundle/Controller/TargetController.php"
+    type:     annotation
+
+tester_skip_mode:
+    resource: "@TesterBundle/Controller/SkipModeController.php"
+    type:     annotation
+
+tester_response:
+    resource: "@TesterBundle/Controller/ResponseController.php"
+    type:     annotation
+
+tester_prompt_state:
+    resource: "@TesterBundle/Controller/PromptStateController.php"
+    type:     annotation
+
+tester_os_state:
+    resource: "@TesterBundle/Controller/OsStateController.php"
+    type:     annotation
+
+tester_action_verdict:
+    resource: "@TesterBundle/Controller/ActionVerdictController.php"
+    type:     annotation
+
+tester_action:
+    resource: "@TesterBundle/Controller/ActionController.php"
+    type:     annotation
+
 tester:
     resource: "@TesterBundle/Resources/config/routing.xml"
     prefix:   /

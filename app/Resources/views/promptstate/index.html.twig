@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promptstates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promptState in promptStates %}
+            <tr>
+                <td><a href="{{ path('promptstate_show', { 'id': promptState.id }) }}">{{ promptState.id }}</a></td>
+                <td>{{ promptState.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('promptstate_show', { 'id': promptState.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('promptstate_edit', { 'id': promptState.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promptstate_new') }}">Create a new promptState</a>
+        </li>
+    </ul>
+{% endblock %}

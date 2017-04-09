@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Osstates list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for osState in osStates %}
+            <tr>
+                <td><a href="{{ path('osstate_show', { 'id': osState.id }) }}">{{ osState.id }}</a></td>
+                <td>{{ osState.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('osstate_show', { 'id': osState.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('osstate_edit', { 'id': osState.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('osstate_new') }}">Create a new osState</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Responses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Pattern</th>
+                <th>Output</th>
+                <th>State</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for response in responses %}
+            <tr>
+                <td><a href="{{ path('response_show', { 'id': response.id }) }}">{{ response.id }}</a></td>
+                <td>{{ response.name }}</td>
+                <td>{{ response.pattern }}</td>
+                <td>{{ response.output }}</td>
+                <td>{{ response.state }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('response_show', { 'id': response.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('response_edit', { 'id': response.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('response_new') }}">Create a new response</a>
+        </li>
+    </ul>
+{% endblock %}

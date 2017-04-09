@@ -5,12 +5,12 @@ namespace Werd\TesterBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ActionVerdict
+ * OsState
  *
- * @ORM\Table(name="action_verdict")
- * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\ActionVerdictRepository")
+ * @ORM\Table(name="os_state")
+ * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\OsStateRepository")
  */
-class ActionVerdict
+class OsState
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class ActionVerdict
      *
      * @param string $name
      *
-     * @return ActionVerdict
+     * @return OsState
      */
     public function setName($name)
     {
@@ -63,3 +63,4 @@ class ActionVerdict
         return $this->name;
     }
 }
+

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Response</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ response.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ response.name }}</td>
+            </tr>
+            <tr>
+                <th>Pattern</th>
+                <td>{{ response.pattern }}</td>
+            </tr>
+            <tr>
+                <th>Output</th>
+                <td>{{ response.output }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ response.state }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('response_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('response_edit', { 'id': response.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

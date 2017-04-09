@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Skipmodes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for skipMode in skipModes %}
+            <tr>
+                <td><a href="{{ path('skipmode_show', { 'id': skipMode.id }) }}">{{ skipMode.id }}</a></td>
+                <td>{{ skipMode.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('skipmode_show', { 'id': skipMode.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('skipmode_edit', { 'id': skipMode.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('skipmode_new') }}">Create a new skipMode</a>
+        </li>
+    </ul>
+{% endblock %}

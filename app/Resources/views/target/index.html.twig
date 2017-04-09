@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Targets list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Managed</th>
+                <th>Manager</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for target in targets %}
+            <tr>
+                <td><a href="{{ path('target_show', { 'id': target.id }) }}">{{ target.id }}</a></td>
+                <td>{{ target.name }}</td>
+                <td>{% if target.managed %}Yes{% else %}No{% endif %}</td>
+                <td>{% if target.manager %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('target_show', { 'id': target.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('target_edit', { 'id': target.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('target_new') }}">Create a new target</a>
+        </li>
+    </ul>
+{% endblock %}

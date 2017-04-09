@@ -63,4 +63,3 @@ class SkipMode
         return $this->name;
     }
 }
-

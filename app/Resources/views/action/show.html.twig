@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Action</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ action.id }}</td>
+            </tr>
+            <tr>
+                <th>Command</th>
+                <td>{{ action.command }}</td>
+            </tr>
+            <tr>
+                <th>Timeout</th>
+                <td>{{ action.timeout }}</td>
+            </tr>
+            <tr>
+                <th>Skip</th>
+                <td>{% if action.skip %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Skipmessage</th>
+                <td>{{ action.skipMessage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('action_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('action_edit', { 'id': action.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

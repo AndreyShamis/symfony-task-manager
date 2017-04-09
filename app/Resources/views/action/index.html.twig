@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Actions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Command</th>
+                <th>Timeout</th>
+                <th>Skip</th>
+                <th>Skipmessage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for action in actions %}
+            <tr>
+                <td><a href="{{ path('action_show', { 'id': action.id }) }}">{{ action.id }}</a></td>
+                <td>{{ action.command }}</td>
+                <td>{{ action.timeout }}</td>
+                <td>{% if action.skip %}Yes{% else %}No{% endif %}</td>
+                <td>{{ action.skipMessage }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('action_show', { 'id': action.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('action_edit', { 'id': action.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('action_new') }}">Create a new action</a>
+        </li>
+    </ul>
+{% endblock %}

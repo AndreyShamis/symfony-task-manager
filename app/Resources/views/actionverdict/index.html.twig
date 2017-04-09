@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Actionverdicts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actionVerdict in actionVerdicts %}
+            <tr>
+                <td><a href="{{ path('actionverdict_show', { 'id': actionVerdict.id }) }}">{{ actionVerdict.id }}</a></td>
+                <td>{{ actionVerdict.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('actionverdict_show', { 'id': actionVerdict.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('actionverdict_edit', { 'id': actionVerdict.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('actionverdict_new') }}">Create a new actionVerdict</a>
+        </li>
+    </ul>
+{% endblock %}
