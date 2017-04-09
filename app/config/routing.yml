@@ -25,6 +25,9 @@ tester_action_verdict:
 tester_action:
     resource: "@TesterBundle/Controller/ActionController.php"
     type:     annotation
+iot:
+    resource: "@IotBundle/Resources/config/routing.xml"
+    prefix:   /
 
 tester:
     resource: "@TesterBundle/Resources/config/routing.xml"
