@@ -3,76 +3,77 @@
 </script>
 
 {% set route = app.request.get('_route') %}
+{% set url = app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getPathInfo %}
 
 <ul class="nav nav-list  nav-sidebar">
     <li class="{% if route == 'idefault_index' %}active{% endif %}">
-        <a href="{{ app.request.scheme ~'://' ~ app.request.httpHost  }}">
+        <a href="{{ url}}">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text">Home</span>
         </a>
         <b class="arrow"></b>
     </li>
 
-    <li class="{% if route starts with 'cycle' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">
+    <li class="{% if route starts with 'device' %}active{% endif %}">
+        <a href="{{url}}">
             <i class="menu-icon fa fa-list-alt"></i>
-            <span class="menu-text bigger-120"> Cycles </span>
+            <span class="menu-text bigger-120"> Devices </span>
         </a>
         <b class="arrow"></b>
     </li>
 
-    <li class="{% if route starts with 'report_' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">
-            <i class="menu-icon fa fa-calendar"></i>
-            <span class="menu-text  bigger-120">Reports
-            </span>
-        </a>
-        <b class="arrow"></b>
-    </li>
+    {#<li class="{% if route starts with 'report_' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">#}
+            {#<i class="menu-icon fa fa-calendar"></i>#}
+            {#<span class="menu-text  bigger-120">Reports#}
+            {#</span>#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
-    <li class="{% if route == 'setup' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">
-            <i class="menu-icon fa fa-picture-o"></i>
-            <span class="menu-text"> Setups </span>
-        </a>
+    {#<li class="{% if route == 'setup' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">#}
+            {#<i class="menu-icon fa fa-picture-o"></i>#}
+            {#<span class="menu-text"> Setups </span>#}
+        {#</a>#}
 
-        <b class="arrow"></b>
-    </li>
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
-    <li class="{% if route starts with 'bkc' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">
-            <i class="menu-icon fa fa-list"></i>
-            <span class="menu-text"> BKC </span>
-        </a>
-        <b class="arrow"></b>
-    </li>
+    {#<li class="{% if route starts with 'bkc' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">#}
+            {#<i class="menu-icon fa fa-list"></i>#}
+            {#<span class="menu-text"> BKC </span>#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
-    <li class="{% if route starts with 'cq_' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >
-            <i class="menu-icon fa fa-pencil-square-o"></i>
-            <span class="menu-text"> CQ </span>
-        </a>
-        <b class="arrow"></b>
-    </li>
+    {#<li class="{% if route starts with 'cq_' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >#}
+            {#<i class="menu-icon fa fa-pencil-square-o"></i>#}
+            {#<span class="menu-text"> CQ </span>#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
-    <li class="{% if route starts with 'event_' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >
-            <i class="menu-icon fa fa-tag"></i>
-            <span class="menu-text">Events</span>
-        </a>
-        <b class="arrow"></b>
-    </li>
+    {#<li class="{% if route starts with 'event_' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >#}
+            {#<i class="menu-icon fa fa-tag"></i>#}
+            {#<span class="menu-text">Events</span>#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
 
-    <li class="{% if route starts with 'dut' %}active{% endif %}">
-        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}" >
-            <i class="menu-icon fa fa-file-o"></i>
-            <span class="menu-text">DUT
+    {#<li class="{% if route starts with 'dut' %}active{% endif %}">#}
+        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}" >#}
+            {#<i class="menu-icon fa fa-file-o"></i>#}
+            {#<span class="menu-text">DUT#}
                 {#<span class="badge badge-primary">5</span>#}
-            </span>
-        </a>
-        <b class="arrow"></b>
-    </li>
+            {#</span>#}
+        {#</a>#}
+        {#<b class="arrow"></b>#}
+    {#</li>#}
 
     {# ################################### Controll ################################### #}
     <li class="{% if route in ['wlogsetupbuild_index','wlogsetup_edit','wlogsetupbuild_show','wlogsetup_index','wlogsetup_show','dca','usecasename','usecasename_show','usecasename_edit','actionresultdescription','actionparameter','actionname','platform','adapter','os','poa','poa_show','poa_index','core','core_index','core_show'] %}active{% endif %}">

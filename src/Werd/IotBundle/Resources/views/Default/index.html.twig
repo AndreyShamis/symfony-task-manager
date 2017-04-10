@@ -4,7 +4,7 @@
 {% block body %}
 
     {#{% if admin_service.isAdmin != 1 %}#}
-    {% include ':mtbf:top.menu.html.twig' %}
+    {% include ':iot:top.menu.html.twig' %}
     {#{% endif %}#}
     <div class="main-container" id="main-container">
 
@@ -12,13 +12,13 @@
             try{ace.settings.check('main-container' , 'fixed')}catch(e){}
         </script>
         <div id="sidebar" class="sidebar responsive">
-            {% include ':mtbf:menu.html.twig' %}
+            {% include ':iot:menu.html.twig' %}
 
             {#{% if admin_service.isAdmin != 1 %}#}
-                {#{% include ':mtbf:menu.html.twig' %}#}
+                {#{% include ':iot:menu.html.twig' %}#}
             {#{% endif %}#}
             {#{% if admin_service.isAdmin == 1 %}#}
-                {#{% include ':mtbf:menu.admin.html.twig' %}#}
+                {#{% include ':iot:menu.admin.html.twig' %}#}
             {#{% endif %}#}
 
         </div>
