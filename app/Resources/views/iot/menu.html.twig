@@ -4,9 +4,8 @@
 
 {% set route = app.request.get('_route') %}
 {% set url = app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getPathInfo %}
-
 <ul class="nav nav-list  nav-sidebar">
-    <li class="{% if route == 'idefault_index' %}active{% endif %}">
+    <li class="{% if route == 'default_index' %}active{% endif %}">
         <a href="{{ url}}">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text">Home</span>
@@ -15,7 +14,7 @@
     </li>
 
     <li class="{% if route starts with 'device' %}active{% endif %}">
-        <a href="{{url}}">
+        <a href="{{asset(path('device_index'))}}">
             <i class="menu-icon fa fa-list-alt"></i>
             <span class="menu-text bigger-120"> Devices </span>
         </a>

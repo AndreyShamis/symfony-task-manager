@@ -1,0 +1,47 @@
+{% extends ':iot:index.html.twig' %}
+
+{% block content %}
+    <h1>Devices list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Macaddr</th>
+                <th>Hostname</th>
+                <th>Lastseen</th>
+                <th>Addeddate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for device in devices %}
+            <tr>
+                <td><a href="{{ path('device_show', { 'id': device.id }) }}">{{ device.id }}</a></td>
+                <td>{{ device.name }}</td>
+                <td>{{ device.macAddr }}</td>
+                <td>{{ device.hostName }}</td>
+                <td>{% if device.lastSeen %}{{ device.lastSeen|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if device.addedDate %}{{ device.addedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('device_show', { 'id': device.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('device_edit', { 'id': device.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('device_new') }}">Create a new device</a>
+        </li>
+    </ul>
+{% endblock %}

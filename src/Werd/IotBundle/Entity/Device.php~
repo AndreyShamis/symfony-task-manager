@@ -162,28 +162,4 @@ class Device
     {
         return $this->addedDate;
     }
-
-    /**
-     * Set hostName
-     *
-     * @param string $hostName
-     *
-     * @return Device
-     */
-    public function setHostName($hostName)
-    {
-        $this->hostName = $hostName;
-
-        return $this;
-    }
-
-    /**
-     * Get hostName
-     *
-     * @return string
-     */
-    public function getHostName()
-    {
-        return $this->hostName;
-    }
 }
