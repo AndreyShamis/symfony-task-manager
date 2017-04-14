@@ -13,7 +13,26 @@ class DeviceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('macAddr')->add('hostName')->add('lastSeen')->add('addedDate');
+        $builder->add('name')
+            ->add('macAddr')
+            ->add('hostName')
+            ->add('wifi_channel')
+            ->add('wifi_rssi')
+            ->add('ip_addr')
+            ->add('wifi_mac_addr')
+            ->add('core_version')
+            ->add('sdk_version')
+            ->add('boot_version')
+            ->add('boot_mode')
+            ->add('sketch_size')
+            ->add('free_sketch_space')
+            ->add('cpu_freq')
+            ->add('flash_chip_size')
+            ->add('flash_chip_speed')
+            ->add('flash_chip_id')
+            ->add('flash_chip_mode')
+            ->add('lastSeen')
+            ->add('addedDate');
     }
     
     /**
@@ -33,6 +52,5 @@ class DeviceType extends AbstractType
     {
         return 'werd_iotbundle_device';
     }
-
-
+    
 }
