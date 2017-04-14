@@ -28,23 +28,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" />
     <![endif]-->
 
-
     <!--[if !IE]> -->
-    {#<script src="{{url}}/assets/js/jquery.2.1.1.min.js"></script>#}
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- <![endif]-->
-
-    <!--[if IE]>
-    <script src="{{url}}/assets/js/jquery.1.11.1.min.js"></script>
-    <![endif]-->
-
 
     <!-- inline styles related to this page -->
     <!-- Custom styles for this template -->
-    {#<link href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ asset('css/dashboard.css') }}" rel="stylesheet">#}
     <link href="{{url ~ asset('css/css.css') }}" rel="stylesheet">
     <link href="{{url ~ asset('css/tm.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -63,37 +52,18 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
     <!-- Bootstrap core JavaScript ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>#}
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-    {#{% javascripts#}
-    {#'vendor/bootstrap/dist/js/bootstrap.min.js'#}
-    {#output='scripts.js' %}#}
-    {#<script src="{{ asset_url }}"></script>#}
-    {#{% endjavascripts %}#}
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     {#<script src="{{app.request.scheme ~'://' ~ app.request.httpHost ~ asset('js/bootstrap.min.js') }}"></script>#}
     <script src="{{app.request.scheme ~'://' ~ app.request.httpHost ~ asset('js/common.js') }}"></script>
     <script src="{{app.request.scheme ~'://' ~ app.request.httpHost ~ asset('js/tm.js') }}"></script>
-    {#<script src="../../dist/js/bootstrap.min.js"></script>#}
-
-    {#<!-- Just to make our placeholder images work. Don't actually copy the next line! -->#}
-    {#<script src="../../assets/js/vendor/holder.min.js"></script>#}
-    {#<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->#}
-    {#<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>#}
-
-    <!--[if !IE]> -->
-    <script type="text/javascript">
-        window.jQuery || document.write("<script src='{{url}}/assets/js/jquery.min.js'>"+"<"+"/script>");
-    </script>
-
 
     <!--[if IE]>
     <script type="text/javascript">
@@ -114,7 +84,6 @@
     <script type="text/javascript">
         if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
     </script>
-    <script src="{{url}}/assets/js/bootstrap.min.js"></script>
 
     <!-- page specific plugin scripts -->
     <script src="{{url}}/assets/js/jquery-ui.custom.min.js"></script>
@@ -127,15 +96,10 @@
 </script>
 {% block body %}
 
-
 {% endblock %}
 {#{% block javascripts %}{% endblock %}#}
 <!-- basic scripts -->
-
-
-
 <!-- page specific plugin scripts -->
-
 <!-- ace scripts -->
 <script src="{{url}}/assets/js/ace-elements.min.js"></script>
 <script src="{{url}}/assets/js/ace.min.js"></script>
