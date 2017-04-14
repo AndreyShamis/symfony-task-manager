@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Device</h1>
 
-    <table>
+    <table class="records_list table table-striped table-condensed">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -12,10 +12,6 @@
             <tr>
                 <th>Name</th>
                 <td>{{ device.name }}</td>
-            </tr>
-            <tr>
-                <th>Macaddr</th>
-                <td>{{ device.macAddr }}</td>
             </tr>
             <tr>
                 <th>Hostname</th>

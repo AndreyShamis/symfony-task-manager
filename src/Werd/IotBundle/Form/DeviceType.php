@@ -14,7 +14,7 @@ class DeviceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name')
-            ->add('macAddr')
+            ->add('model')
             ->add('hostName')
             ->add('wifi_channel')
             ->add('wifi_rssi')
@@ -52,5 +52,5 @@ class DeviceType extends AbstractType
     {
         return 'werd_iotbundle_device';
     }
-    
+
 }

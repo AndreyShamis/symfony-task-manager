@@ -1,0 +1,47 @@
+{% extends ':iot:index.html.twig' %}
+
+{% block content %}
+    <h1>Device Model</h1>
+
+    <table class="records_list table table-striped table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ deviceModel.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ deviceModel.name }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ deviceModel.version }}</td>
+            </tr>
+            <tr>
+                <th>Manufactor</th>
+                <td>{{ deviceModel.manufactor }}</td>
+            </tr>
+            <tr>
+                <th>Datasheet</th>
+                <td>
+                    <a href="{{ deviceModel.datasheet }}" target="_blank">Link</a>
+                    <small>{{ deviceModel.datasheet }}</small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('devicemodel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('devicemodel_edit', { 'id': deviceModel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

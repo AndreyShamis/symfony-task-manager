@@ -3,7 +3,7 @@
 namespace Werd\IotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Werd\IotBundle\Entity\DeviceModel;
 /**
  * Device
  *
@@ -29,12 +29,10 @@ class Device
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mac_addr", type="string", length=20, unique=true)
+     * @ORM\ManyToOne(targetEntity="Werd\IotBundle\Entity\DeviceModel", inversedBy="device")
+     * @ORM\JoinColumn(name="model",fieldName="id" , referencedColumnName="id", onDelete="SET NULL" )
      */
-    private $macAddr;
-
+    protected $model;
     /**
      * @var string
      *
@@ -650,5 +648,34 @@ class Device
     public function getFlashChipMode()
     {
         return $this->flash_chip_mode;
+    }
+
+    /**
+     * Set model
+     *
+     * @param \Werd\IotBundle\Entity\Devicemodel $model
+     *
+     * @return Device
+     */
+    public function setModel(\Werd\IotBundle\Entity\Devicemodel $model = null)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Get model
+     *
+     * @return \Werd\IotBundle\Entity\Devicemodel
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

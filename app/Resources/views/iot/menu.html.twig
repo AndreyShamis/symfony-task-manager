@@ -13,7 +13,7 @@
         <b class="arrow"></b>
     </li>
 
-    <li class="{% if route starts with 'device' %}active{% endif %}">
+    <li class="{% if route starts with 'device_' %}active{% endif %}">
         <a href="{{asset(path('device_index'))}}">
             <i class="menu-icon fa fa-list-alt"></i>
             <span class="menu-text bigger-120"> Devices </span>
@@ -21,14 +21,14 @@
         <b class="arrow"></b>
     </li>
 
-    {#<li class="{% if route starts with 'report_' %}active{% endif %}">#}
-        {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">#}
-            {#<i class="menu-icon fa fa-calendar"></i>#}
-            {#<span class="menu-text  bigger-120">Reports#}
-            {#</span>#}
-        {#</a>#}
-        {#<b class="arrow"></b>#}
-    {#</li>#}
+    <li class="{% if route starts with 'devicemodel_' %}active{% endif %}">
+        <a href="{{asset(path('devicemodel_index'))}}">
+            <i class="menu-icon fa fa-list"></i>
+            <span class="menu-text  bigger-120">Models
+            </span>
+        </a>
+        <b class="arrow"></b>
+    </li>
 
     {#<li class="{% if route == 'setup' %}active{% endif %}">#}
         {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">#}

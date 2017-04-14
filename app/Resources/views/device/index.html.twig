@@ -2,73 +2,75 @@
 
 {% block content %}
     <h1>Devices list</h1>
-
-    <table>
+    {% include ":default:search.html.twig" %}
+    <table id="table1" class="records_list table table-striped table-condensed ">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Macaddr</th>
+                <th>Model</th>
                 <th>Hostname</th>
-                <th>Wifi_channel</th>
-                <th>Wifi_rssi</th>
-                <th>Ip_addr</th>
-                <th>Wifi_mac_addr</th>
-                <th>Core_version</th>
-                <th>Sdk_version</th>
-                <th>Boot_version</th>
-                <th>Boot_mode</th>
-                <th>Sketch_size</th>
-                <th>Free_sketch_space</th>
-                <th>Cpu_freq</th>
-                <th>Flash_chip_size</th>
-                <th>Flash_chip_speed</th>
-                <th>Flash_chip_id</th>
-                <th>Flash_chip_mode</th>
+                <th>Cpu</th>
+
+                <th>Ip</th>
+                <th>Channel</th>
+                <th>RSSI</th>
+                {#<th>Wifi_mac_addr</th>#}
+                <th>CoreV</th>
+                <th>SdkV</th>
+                {#<th>BootV</th>#}
+                {#<th>BootM</th>#}
+                <th title="Sketch Size">Sketch</th>
+                <th title="Free sketch space">Free</th>
+
+                <th>Flash</th>
+                {#<th>Flash_chip_speed</th>#}
+                {#<th>Flash_chip_id</th>#}
+                {#<th>Flash_chip_mode</th>#}
                 <th>Lastseen</th>
-                <th>Addeddate</th>
-                <th>Actions</th>
+                <th>Added</th>
+                <th>#</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="searchable">
         {% for device in devices %}
             <tr>
                 <td><a href="{{ path('device_show', { 'id': device.id }) }}">{{ device.id }}</a></td>
-                <td>{{ device.name }}</td>
-                <td>{{ device.macAddr }}</td>
-                <td>{{ device.hostName }}</td>
-                <td>{{ device.wifichannel }}</td>
-                <td>{{ device.wifirssi }}</td>
+                <td><a href="{{ path('device_show', { 'id': device.id }) }}">{{ device.name }}</a></td>
+                <td><a href="{{ path('devicemodel_show', { 'id': device.model.id }) }}">{{ device.model }}</a></td>
+                <td><a href="{{ path('device_show', { 'id': device.id }) }}">{{ device.hostName }}</a></td>
+                <td>{{ device.cpufreq }} Mhz</td>
+
                 <td>{{ device.ipaddr }}</td>
-                <td>{{ device.wifimacaddr }}</td>
+                <td>{{ device.wifichannel }}</td>
+                <td>-{{ device.wifirssi }}</td>
+                {#<td>{{ device.wifimacaddr }}</td>#}
                 <td>{{ device.coreversion }}</td>
                 <td>{{ device.sdkversion }}</td>
-                <td>{{ device.bootversion }}</td>
-                <td>{{ device.bootmode }}</td>
-                <td>{{ device.sketchsize }}</td>
-                <td>{{ device.freesketchspace }}</td>
-                <td>{{ device.cpufreq }}</td>
-                <td>{{ device.flashchipsize }}</td>
-                <td>{{ device.flashchipspeed }}</td>
-                <td>{{ device.flashchipid }}</td>
-                <td>{{ device.flashchipmode }}</td>
+                {#<td>{{ device.bootversion }}</td>#}
+                {#<td>{{ device.bootmode }}</td>#}
+                <td>{{ (device.sketchsize/1024)|round  }} Kb</td>
+                <td>{{ (device.freesketchspace/1024)|round }} Kb</td>
+
+                <td>{{ (device.flashchipsize/1024)|round  }} Kb</td>
+                {#<td>{{ device.flashchipspeed }}</td>#}
+                {#<td>{{ device.flashchipid }}</td>#}
+                {#<td>{{ device.flashchipmode }}</td>#}
                 <td>{% if device.lastSeen %}{{ device.lastSeen|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if device.addedDate %}{{ device.addedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if device.addedDate %}{{ device.addedDate|date('Y-m-d') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('device_show', { 'id': device.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('device_edit', { 'id': device.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('device_show', { 'id': device.id }) }}">show</a>
+                    <a href="{{ path('device_edit', { 'id': device.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
+    <script>
+//        $(document).ready(function(){
+//            $('#table1').dataTable();
+//        });
+    </script>
     <ul>
         <li>
             <a href="{{ path('device_new') }}">Create a new device</a>

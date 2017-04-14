@@ -1,0 +1,39 @@
+{% extends ':iot:index.html.twig' %}
+
+{% block content %}
+    <h1>Device models list</h1>
+    {% include ":default:search.html.twig" %}
+    <table id="table1" class="records_list table table-striped table-condensed ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Manufactor</th>
+                <th>Datasheet</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody class="searchable">
+        {% for deviceModel in deviceModels %}
+            <tr>
+                <td><a href="{{ path('devicemodel_show', { 'id': deviceModel.id }) }}">{{ deviceModel.id }}</a></td>
+                <td>{{ deviceModel.name }}</td>
+                <td>{{ deviceModel.version }}</td>
+                <td>{{ deviceModel.manufactor }}</td>
+                <td><a href="{{ deviceModel.datasheet }}" target="_blank">Link</a></td>
+                <td>
+                    <a href="{{ path('devicemodel_show', { 'id': deviceModel.id }) }}">show</a>
+                    <a href="{{ path('devicemodel_edit', { 'id': deviceModel.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('devicemodel_new') }}">Create a new deviceModel</a>
+        </li>
+    </ul>
+{% endblock %}
