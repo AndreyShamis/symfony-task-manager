@@ -10,6 +10,21 @@
                 <th>Name</th>
                 <th>Macaddr</th>
                 <th>Hostname</th>
+                <th>Wifi_channel</th>
+                <th>Wifi_rssi</th>
+                <th>Ip_addr</th>
+                <th>Wifi_mac_addr</th>
+                <th>Core_version</th>
+                <th>Sdk_version</th>
+                <th>Boot_version</th>
+                <th>Boot_mode</th>
+                <th>Sketch_size</th>
+                <th>Free_sketch_space</th>
+                <th>Cpu_freq</th>
+                <th>Flash_chip_size</th>
+                <th>Flash_chip_speed</th>
+                <th>Flash_chip_id</th>
+                <th>Flash_chip_mode</th>
                 <th>Lastseen</th>
                 <th>Addeddate</th>
                 <th>Actions</th>
@@ -22,6 +37,21 @@
                 <td>{{ device.name }}</td>
                 <td>{{ device.macAddr }}</td>
                 <td>{{ device.hostName }}</td>
+                <td>{{ device.wifichannel }}</td>
+                <td>{{ device.wifirssi }}</td>
+                <td>{{ device.ipaddr }}</td>
+                <td>{{ device.wifimacaddr }}</td>
+                <td>{{ device.coreversion }}</td>
+                <td>{{ device.sdkversion }}</td>
+                <td>{{ device.bootversion }}</td>
+                <td>{{ device.bootmode }}</td>
+                <td>{{ device.sketchsize }}</td>
+                <td>{{ device.freesketchspace }}</td>
+                <td>{{ device.cpufreq }}</td>
+                <td>{{ device.flashchipsize }}</td>
+                <td>{{ device.flashchipspeed }}</td>
+                <td>{{ device.flashchipid }}</td>
+                <td>{{ device.flashchipmode }}</td>
                 <td>{% if device.lastSeen %}{{ device.lastSeen|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if device.addedDate %}{{ device.addedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>

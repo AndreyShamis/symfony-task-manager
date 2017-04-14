@@ -15,7 +15,7 @@ class Device
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -41,6 +41,111 @@ class Device
      * @ORM\Column(name="hostname", type="string", length=50, unique=true)
      */
     private $hostName;
+
+    /**
+     * @var smallint
+     *
+     * @ORM\Column(name="wifi_channel", type="smallint", options={"unsigned"=true})
+     */
+    private $wifi_channel = 0;
+
+    /**
+     * @var smallint
+     *
+     * @ORM\Column(name="wifi_rssi", type="smallint", options={"unsigned"=true})
+     */
+    private $wifi_rssi = 0;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_addr", type="string", length=25, unique=false)
+     */
+    private $ip_addr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="wifi_mac_addr", type="string", length=25, unique=true)
+     */
+    private $wifi_mac_addr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="core_version", type="string", length=50, unique=false)
+     */
+    private $core_version;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sdk_version", type="string", length=50, unique=false)
+     */
+    private $sdk_version;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="boot_version", type="string", length=50, unique=false)
+     */
+    private $boot_version;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="boot_mode", type="string", length=50, unique=false)
+     */
+    private $boot_mode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sketch_size", type="integer", options={"unsigned"=true})
+     */
+    private $sketch_size = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="free_sketch_space", type="integer", options={"unsigned"=true})
+     */
+    private $free_sketch_space = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cpu_freq", type="integer", options={"unsigned"=true})
+     */
+    private $cpu_freq = 80;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flash_chip_size", type="integer", options={"unsigned"=true})
+     */
+    private $flash_chip_size = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flash_chip_speed", type="integer", options={"unsigned"=true})
+     */
+    private $flash_chip_speed = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flash_chip_id", type="integer", options={"unsigned"=true})
+     */
+    private $flash_chip_id = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="flash_chip_mode", type="integer", options={"unsigned"=true})
+     */
+    private $flash_chip_mode = 0;
 
     /**
      * @var \DateTime
@@ -161,5 +266,29 @@ class Device
     public function getAddedDate()
     {
         return $this->addedDate;
+    }
+
+    /**
+     * Set hostName
+     *
+     * @param string $hostName
+     *
+     * @return Device
+     */
+    public function setHostName($hostName)
+    {
+        $this->hostName = $hostName;
+
+        return $this;
+    }
+
+    /**
+     * Get hostName
+     *
+     * @return string
+     */
+    public function getHostName()
+    {
+        return $this->hostName;
     }
 }

@@ -6,6 +6,10 @@ iot_device:
     resource: "@IotBundle/Controller/DeviceController.php"
     type:     annotation
 
+iot_device:
+    resource: "@IotBundle/Controller/DeviceController.php"
+    type:     annotation
+
 tester_target:
     resource: "@TesterBundle/Controller/TargetController.php"
     type:     annotation

@@ -22,6 +22,66 @@
                 <td>{{ device.hostName }}</td>
             </tr>
             <tr>
+                <th>Wifi_channel</th>
+                <td>{{ device.wifichannel }}</td>
+            </tr>
+            <tr>
+                <th>Wifi_rssi</th>
+                <td>{{ device.wifirssi }}</td>
+            </tr>
+            <tr>
+                <th>Ip_addr</th>
+                <td>{{ device.ipaddr }}</td>
+            </tr>
+            <tr>
+                <th>Wifi_mac_addr</th>
+                <td>{{ device.wifimacaddr }}</td>
+            </tr>
+            <tr>
+                <th>Core_version</th>
+                <td>{{ device.coreversion }}</td>
+            </tr>
+            <tr>
+                <th>Sdk_version</th>
+                <td>{{ device.sdkversion }}</td>
+            </tr>
+            <tr>
+                <th>Boot_version</th>
+                <td>{{ device.bootversion }}</td>
+            </tr>
+            <tr>
+                <th>Boot_mode</th>
+                <td>{{ device.bootmode }}</td>
+            </tr>
+            <tr>
+                <th>Sketch_size</th>
+                <td>{{ device.sketchsize }}</td>
+            </tr>
+            <tr>
+                <th>Free_sketch_space</th>
+                <td>{{ device.freesketchspace }}</td>
+            </tr>
+            <tr>
+                <th>Cpu_freq</th>
+                <td>{{ device.cpufreq }}</td>
+            </tr>
+            <tr>
+                <th>Flash_chip_size</th>
+                <td>{{ device.flashchipsize }}</td>
+            </tr>
+            <tr>
+                <th>Flash_chip_speed</th>
+                <td>{{ device.flashchipspeed }}</td>
+            </tr>
+            <tr>
+                <th>Flash_chip_id</th>
+                <td>{{ device.flashchipid }}</td>
+            </tr>
+            <tr>
+                <th>Flash_chip_mode</th>
+                <td>{{ device.flashchipmode }}</td>
+            </tr>
+            <tr>
                 <th>Lastseen</th>
                 <td>{% if device.lastSeen %}{{ device.lastSeen|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
