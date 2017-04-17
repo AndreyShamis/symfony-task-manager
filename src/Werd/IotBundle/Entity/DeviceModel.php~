@@ -31,7 +31,7 @@ class DeviceModel
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
@@ -202,5 +202,10 @@ class DeviceModel
     public function getDevice()
     {
         return $this->device;
+    }
+
+    public function __toString()
+    {
+        return $this->getName() . " " . $this->getVersion();
     }
 }

@@ -673,4 +673,9 @@ class Device
     {
         return $this->model;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

@@ -1,0 +1,186 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#">About</a></li>
+                    <li role="presentation"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Boiler Control</h3>
+        </div>
+
+        {#<div class="jumbotron">#}
+            {#<h1>Jumbotron heading</h1>#}
+            {#<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
+            {#<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>#}
+        {#</div>#}
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4>Current MODE</h4>
+                <span id='bolier_mode' class="badge boilerMode">0</span>
+                <span id='bolier_mode' class="badge badge-danger boilerMode">1</span>
+                <span id='bolier_mode' class="badge badge-info boilerMode">2</span>
+                <span id='bolier_mode' class="badge badge-success boilerMode">3</span>
+                <span id='bolier_mode' class="badge badge-pink boilerMode">4</span>
+                <a href="#" class="btn btn-app btn-success">
+                    <i class="ace-icon fa fa-refresh bigger-230"></i>
+                    Reload
+                </a>
+                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4>Info</h4>
+                <div class="easy-pie-chart current-temperature" data-percent="45" style="height:75px; width: 75px; line-height: 74px; color: rgb(209, 91, 71);">
+                    <span class="percent">20</span> C
+                </div>
+                <a  id='boiler_mode_description' class="blue boilerModeDesc"
+                    id="hide-option" href="#" title="Keep TMP=40.00 C">
+                    <i class="ace-icon fa fa-hand-o-right">Keep TMP=40.00 C</i>
+                </a>
+                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2016 - Andrey Shamis</p>
+        </footer>
+
+    </div> <!-- /container -->
+    <script>
+        function tempToColor(value){
+            if (value <= 20)        return "#263EF2";
+            else if ( value <= 25)  return "#3064C6";
+            else if ( value <= 30)  return "#3D988C";
+            else if ( value <= 35)  return "#44B16E";
+            else if ( value <= 40)  return "#55F226";
+            else if ( value <= 45)  return "#9D9017";
+            else if ( value <= 50)  return "#B66F13";
+            else if ( value <= 55)  return "#C25F10";
+            else if ( value <= 60)  return "#DA3E0C";
+            else if ( value <= 65)  return "#E62E09";
+            else                    return "#FF0E05";
+
+        }
+        $('.easy-pie-chart.current-temperature').each(function(){
+            $(this).easyPieChart({
+                barColor: tempToColor($(this).data('percent')),
+                trackColor: '#EEEEEE',
+                scaleColor: false,
+                lineCap: 'butt',
+                lineWidth: 8,
+                animate: ace.vars['old_ie'] ? false : 1000,
+                size:75
+            }).css('color', $(this).data('color'));
+        });
+
+    </script>
+    <table style='width: 100%;' class="records_list table table-striped table-condensed">
+        <thead>
+        <tr>
+            <th>Controll</th>
+            <th>Info</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Time</td>
+                        <td><div id='time_str' class='time'></div><div id='time_epoch' class='timeEpoch'></div></td>
+                    </tr>
+                    <tr class='temperature'>
+                        <td>Current Temp</td>
+                        <td><h2><span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]</h2></td>
+                    </tr>
+                    <tr><td>Refresh</td>
+                        <td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>
+                    </tr>
+                    <tr id='enableBoiler'>
+                        <td>Enable Boiler</td>
+                        <td><form action='/eb'><input style='font-size:72px' type='submit' value='Enable Boiler'></form></td>
+                    </tr>
+                    <tr id='disableBoiler'>
+                        <td>Disable Boiler</td>
+                        <td><form action='/db'><input style='font-size:72px' type='submit' value='Disable Boiler'></form></td>
+                    </tr>
+                    <tr id='keepMode'>
+                        <td>Keep</td>
+                        <td>
+                            <form action='/keep'>
+                                <input style='font-size:22px' type='number' value='40' name='temperatureKeep' maxlength='2'>
+                                <input style='font-size:62px' type='submit' value='Keep'>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                    <tr><td>Boiler MODE</td><td><div id='bolier_mode' clas='boilerMode'>1</div></td></tr>
+                    <tr class='boilerModeDescLine'><td>Boiler MODE Desc</td><td><div id='boiler_mode_description' clas='boilerModeDesc'>Keep TMP=40.00 C </div></td></tr>
+                    <tr><td>Boiler status</td><td><div id='boiler_status' class='boilerStatus'>-1</div></td></tr>
+                    <tr><td>Disabled by watch</td><td><div class='disabledByWatchDog'>0</div></td></tr>
+                    <tr><td>FlashChipId</td><td><div id='flash_chip_id'></div></td></tr>
+                    <tr><td>FlashChipSize</td><td><div id='flash_chip_size'></div></td></tr>
+                    <tr><td>FlashChipSpeed</td><td><div id='flash_chip_speed'></div></td></tr>
+                    <tr><td>FlashChipMode</td><td><div id='flash_chip_mode'></div></td></tr>
+                    <tr><td>CoreVersion/SdkVersion</td><td><span id='core_version'></span> / <span id='sdk_version'></span> </td></tr>
+                    <tr><td>BootVersion/BootMode</td><td><span id='boot_version'></span> / <span id='boot_mode'></span> </td></tr>
+                    <tr><td>CpuFreqMHz</td><td><div id='cpu_freq'></div></td></tr>
+                    <tr><td>macAddress</td><td><div id='mac_addr'></div></td></tr>
+                    <tr><td>HostName</td><td><div id='hostname'></div></td></tr>
+                    <tr><td>Channel/RSSI</td><td><span id='wifi_channel'></span> / <span id='rssi'></span> dbm</td></tr>
+                    <tr><td>SketchSize/FreeSketchSpace</td><td><span id='sketch_size'></span> / <span id='free_sketch_size'></span></td></tr>
+                    <tr><td>Dallas Address</td><td><div id='dallas_addr'></div></td></tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {##}
+    {#<h1>Boilerviewonlies list</h1>#}
+
+    {#<table>#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<th>Actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for boilerViewOnly in boilerViewOnlies %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('boilerviewonly_show', { 'id': boilerViewOnly.id }) }}">{{ boilerViewOnly.id }}</a></td>#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#<li>#}
+                            {#<a href="{{ path('boilerviewonly_show', { 'id': boilerViewOnly.id }) }}">show</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('boilerviewonly_edit', { 'id': boilerViewOnly.id }) }}">edit</a>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('boilerviewonly_new') }}">Create a new boilerViewOnly</a>#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}
