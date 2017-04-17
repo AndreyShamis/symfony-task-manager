@@ -5,9 +5,9 @@
         <div class="header clearfix">
             <nav>
                 <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">About</a></li>
-                    <li role="presentation"><a href="#">Contact</a></li>
+                    <li role="presentation" class="active"><a class="refresh_page" href="#">Home</a></li>
+                    {#<li role="presentation"><a href="#">About</a></li>#}
+                    {#<li role="presentation"><a href="#">Contact</a></li>#}
                 </ul>
             </nav>
             <h3 class="text-muted">Boiler Control</h3>
@@ -21,31 +21,123 @@
 
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
-                <h4>Current MODE</h4>
-                <span id='bolier_mode' class="badge boilerMode">0</span>
-                <span id='bolier_mode' class="badge badge-danger boilerMode">1</span>
-                <span id='bolier_mode' class="badge badge-info boilerMode">2</span>
-                <span id='bolier_mode' class="badge badge-success boilerMode">3</span>
-                <span id='bolier_mode' class="badge badge-pink boilerMode">4</span>
-                <a href="#" class="btn btn-app btn-success">
-                    <i class="ace-icon fa fa-refresh bigger-230"></i>
-                    Reload
-                </a>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-            </div>
+                <div class="row-fluid">
+                    <div class="pull-right" style="vertical-align: top;">
 
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h4>Info</h4>
-                <div class="easy-pie-chart current-temperature" data-percent="45" style="height:75px; width: 75px; line-height: 74px; color: rgb(209, 91, 71);">
-                    <span class="percent">20</span> C
+                        <div class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
+                            <span class="percent">65</span> C
+                        </div>
+                        <span>Current <br/>temperature</span>
+                        {#<input type="number" id="testNumber" value="0">#}
+                    </div>
                 </div>
-                <a  id='boiler_mode_description' class="blue boilerModeDesc"
-                    id="hide-option" href="#" title="Keep TMP=40.00 C">
-                    <i class="ace-icon fa fa-hand-o-right">Keep TMP=40.00 C</i>
+                <a href="#" class="btn btn-app btn-success btn-xs refresh_page" title="Reload">
+                    <i class="ace-icon fa fa-refresh bigger-160"></i>
                 </a>
-                <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                <h4>Current MODE<span id='bolier_mode' class="badge boilerMode">2</span></h4>
 
+
+
+                {#<span id='bolier_mode_unknown' class="badge boilerMode">0</span>#}
+                {#<span id='bolier_mode_manual' class="badge badge-danger boilerMode">1</span>#}
+                {#<span id='bolier_mode_auto' class="badge badge-info boilerMode">2</span>#}
+                {#<span id='bolier_mode_keep' class="badge badge-success boilerMode">3</span>#}
+                {#<span id='bolier_mode_smart_keep' class="badge badge-pink boilerMode">4</span>#}
             </div>
+            <!-- Start right column -->
+            <div class="col-lg-6 col-md-6 col-sm-6 widget-container-col ui-sortable" id="widget-container-col-10" style="min-height: 127px;">
+                <div class="widget-box ui-sortable-handle" id="widget-box-10" style="opacity: 1;">
+                    <div class="widget-header widget-header-small">
+                        <h5 class="widget-title smaller">Information</h5>
+
+                        <div class="widget-toolbar no-border">
+                            <ul class="nav nav-tabs" id="myTab">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#main" aria-expanded="true">Main</a>
+                                </li>
+
+                                <li class="">
+                                    <a data-toggle="tab" href="#settings" aria-expanded="false">Settings</a>
+                                </li>
+
+                                <li class="">
+                                    <a data-toggle="tab" href="#more" aria-expanded="false">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main padding-6">
+                            <div class="tab-content">
+                                <div id="main" class="tab-pane active">
+
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 50%"><h4>Info</h4></td>
+                                            <td style="width: 40%">
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <a  id='boiler_mode_description' class="blue boilerModeDesc"
+                                        id="hide-option" href="#" title="Keep TMP=40.00 C">
+                                        <i class="ace-icon fa fa-hand-o-right">Keep TMP=40.00 C</i>
+                                    </a>
+                                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                                    <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                </div>
+
+                                <div id="settings" class="tab-pane">
+                                    <table class="table  table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Value</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Max possible temperature</td>
+                                            <td><input type="number" name="max_pos_tmp" value="65"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pther option</td>
+                                            <td><input type="number" name="other_option" value="0"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="more" class="tab-pane">
+                                    <table class="records_list table table-striped table-condensed">
+                                        <tbody>
+                                        {#<tr><td>Boiler MODE</td><td><div id='bolier_mode' clas='boilerMode'>1</div></td></tr>#}
+                                        <tr class='boilerModeDescLine'><td>Boiler MODE Desc</td><td><div id='boiler_mode_description' clas='boilerModeDesc'>Keep TMP=40.00 C </div></td></tr>
+                                        <tr><td>Boiler status</td><td><div id='boiler_status' class='boilerStatus'>-1</div></td></tr>
+                                        <tr><td>Disabled by watch</td><td><div class='disabledByWatchDog'>0</div></td></tr>
+                                        <tr><td>FlashChipId</td><td><div id='flash_chip_id'></div></td></tr>
+                                        <tr><td>FlashChipSize</td><td><div id='flash_chip_size'></div></td></tr>
+                                        <tr><td>FlashChipSpeed</td><td><div id='flash_chip_speed'></div></td></tr>
+                                        <tr><td>FlashChipMode</td><td><div id='flash_chip_mode'></div></td></tr>
+                                        <tr><td>CoreVersion/SdkVersion</td><td><span id='core_version'></span> / <span id='sdk_version'></span> </td></tr>
+                                        <tr><td>BootVersion/BootMode</td><td><span id='boot_version'></span> / <span id='boot_mode'></span> </td></tr>
+                                        <tr><td>CpuFreqMHz</td><td><div id='cpu_freq'></div></td></tr>
+                                        <tr><td>macAddress</td><td><div id='mac_addr'></div></td></tr>
+                                        <tr><td>HostName</td><td><div id='hostname'></div></td></tr>
+                                        <tr><td>Channel/RSSI</td><td><span id='wifi_channel'></span> / <span id='rssi'></span> dbm</td></tr>
+                                        <tr><td>SketchSize/FreeSketchSpace</td><td><span id='sketch_size'></span> / <span id='free_sketch_size'></span></td></tr>
+                                        <tr><td>Dallas Address</td><td><div id='dallas_addr'></div></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End right column -->
         </div>
 
         <footer class="footer">
@@ -68,18 +160,64 @@
             else                    return "#FF0E05";
 
         }
+
         $('.easy-pie-chart.current-temperature').each(function(){
+            var tmp = $(this).data('percent');
+            console.log(tmp);
             $(this).easyPieChart({
-                barColor: tempToColor($(this).data('percent')),
+                barColor: function (percent) {
+                    return tempToColor(percent);
+                },
                 trackColor: '#EEEEEE',
                 scaleColor: false,
                 lineCap: 'butt',
-                lineWidth: 8,
+                lineWidth: 20,
                 animate: ace.vars['old_ie'] ? false : 1000,
                 size:75
-            }).css('color', $(this).data('color'));
+            }).css('color', tempToColor(tmp));
         });
 
+        function setBoilerMode(){
+            var bm = $(".boilerMode").text();
+            if (bm >=0 && bm <=4){
+                var bm_obj = $("#bolier_mode");
+                if (bm == 0){
+                    bm_obj.toggleClass('badge-purple');
+                }
+                else if (bm == 1){
+                    bm_obj.toggleClass('badge-danger');
+                }
+                else if (bm == 2){
+                    bm_obj.toggleClass('badge-info');
+                }
+                else if (bm == 3){
+                    bm_obj.toggleClass('badge-success');
+                }
+                else if (bm == 4){
+                    bm_obj.toggleClass('badge-pink');
+                }
+                bm_obj.text(bm);
+            }
+        }
+
+        $(".refresh_page").click(function() {
+            location.reload();
+        });
+
+        $("#testNumber").change(function() {
+            var tmp = $(this).val();
+
+            $(".percent").text(tmp);
+            $('.easy-pie-chart.current-temperature').css('color', tempToColor(tmp));
+            $('.easy-pie-chart.current-temperature').data('easyPieChart').update(tmp);
+        });
+        // A $( document ).ready() block.
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            setBoilerMode();
+        });
+
+        //changeTemperatureGraph();
     </script>
     <table style='width: 100%;' class="records_list table table-striped table-condensed">
         <thead>
@@ -121,28 +259,6 @@
                             </form>
                         </td>
                     </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table>
-                    <tbody>
-                    <tr><td>Boiler MODE</td><td><div id='bolier_mode' clas='boilerMode'>1</div></td></tr>
-                    <tr class='boilerModeDescLine'><td>Boiler MODE Desc</td><td><div id='boiler_mode_description' clas='boilerModeDesc'>Keep TMP=40.00 C </div></td></tr>
-                    <tr><td>Boiler status</td><td><div id='boiler_status' class='boilerStatus'>-1</div></td></tr>
-                    <tr><td>Disabled by watch</td><td><div class='disabledByWatchDog'>0</div></td></tr>
-                    <tr><td>FlashChipId</td><td><div id='flash_chip_id'></div></td></tr>
-                    <tr><td>FlashChipSize</td><td><div id='flash_chip_size'></div></td></tr>
-                    <tr><td>FlashChipSpeed</td><td><div id='flash_chip_speed'></div></td></tr>
-                    <tr><td>FlashChipMode</td><td><div id='flash_chip_mode'></div></td></tr>
-                    <tr><td>CoreVersion/SdkVersion</td><td><span id='core_version'></span> / <span id='sdk_version'></span> </td></tr>
-                    <tr><td>BootVersion/BootMode</td><td><span id='boot_version'></span> / <span id='boot_mode'></span> </td></tr>
-                    <tr><td>CpuFreqMHz</td><td><div id='cpu_freq'></div></td></tr>
-                    <tr><td>macAddress</td><td><div id='mac_addr'></div></td></tr>
-                    <tr><td>HostName</td><td><div id='hostname'></div></td></tr>
-                    <tr><td>Channel/RSSI</td><td><span id='wifi_channel'></span> / <span id='rssi'></span> dbm</td></tr>
-                    <tr><td>SketchSize/FreeSketchSpace</td><td><span id='sketch_size'></span> / <span id='free_sketch_size'></span></td></tr>
-                    <tr><td>Dallas Address</td><td><div id='dallas_addr'></div></td></tr>
                     </tbody>
                 </table>
             </td>
