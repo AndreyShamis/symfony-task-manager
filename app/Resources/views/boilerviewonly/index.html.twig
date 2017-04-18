@@ -5,12 +5,12 @@
         <div class="header clearfix">
             <nav>
                 <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a class="refresh_page" href="#">Home</a></li>
+                    <li role="presentation" class="active"><a class="refresh_page" href="#" title="Refresh"><i class="ace-icon fa fa-refresh bigger-160"> </i></a></li>
                     {#<li role="presentation"><a href="#">About</a></li>#}
                     {#<li role="presentation"><a href="#">Contact</a></li>#}
                 </ul>
             </nav>
-            <h3 class="text-muted">Boiler Control</h3>
+            <h2 class="text-muted">Boiler Control</h2>
         </div>
 
         {#<div class="jumbotron">#}
@@ -21,9 +21,13 @@
 
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
+
                 <div class="row-fluid">
                     <div class="pull-right" style="vertical-align: top;">
-
+                        <label>
+                            <input name="switch-field-1" class="ace ace-switch ace-switch-4 btn-rotate" type="checkbox">
+                            <span class="lbl"></span>
+                        </label>
                         <div class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
                             <span class="percent">65</span> C
                         </div>
@@ -31,9 +35,14 @@
                         {#<input type="number" id="testNumber" value="0">#}
                     </div>
                 </div>
-                <a href="#" class="btn btn-app btn-success btn-xs refresh_page" title="Reload">
-                    <i class="ace-icon fa fa-refresh bigger-160"></i>
-                </a>
+                {#<a href="#" class="btn btn-app btn-success btn-xs refresh_page" title="Reload">#}
+                    {#<i class="ace-icon fa fa-refresh bigger-160"></i>#}
+                {#</a>#}
+                <br/>
+                <br/>
+                <br/>
+                <div id='time_str' class='time'>12:13:14</div>
+
                 <h4>Current MODE<span id='bolier_mode' class="badge boilerMode">2</span></h4>
 
 
@@ -76,7 +85,7 @@
                                         <tr>
                                             <td style="width: 50%"><h4>Info</h4></td>
                                             <td style="width: 40%">
-
+                                                <span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]
                                             </td>
                                         </tr>
                                     </table>
@@ -85,8 +94,39 @@
                                         id="hide-option" href="#" title="Keep TMP=40.00 C">
                                         <i class="ace-icon fa fa-hand-o-right">Keep TMP=40.00 C</i>
                                     </a>
-                                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-                                    <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+                                    <p>Main text</p>
+                                    <table>
+                                        <tbody>
+                                        {#<tr>#}
+                                        {#<td>Time</td>#}
+                                        {#<td><div id='time_str' class='time'></div><div id='time_epoch' class='timeEpoch'></div></td>#}
+                                        {#</tr>#}
+                                        {#<tr class='temperature'>#}
+                                        {#<td>Current Temp</td>#}
+                                        {#<td><h2><span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]</h2></td>#}
+                                        {#</tr>#}
+                                        {#<tr><td>Refresh</td>#}
+                                        {#<td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>#}
+                                        {#</tr>#}
+                                        <tr id='enableBoiler'>
+                                            <td>Enable Boiler</td>
+                                            <td><form action='/eb'><input style='font-size:22px' type='submit' value='Enable Boiler'></form></td>
+                                        </tr>
+                                        <tr id='disableBoiler'>
+                                            <td>Disable Boiler</td>
+                                            <td><form action='/db'><input style='font-size:22px' type='submit' value='Disable Boiler'></form></td>
+                                        </tr>
+                                        <tr id='keepMode'>
+                                            <td>Keep</td>
+                                            <td>
+                                                <form action='/keep'>
+                                                    <input style='font-size:22px' type='number' value='40' name='temperatureKeep' maxlength='2'>
+                                                    <input style='font-size:62px' type='submit' value='Keep'>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
 
                                 <div id="settings" class="tab-pane">
@@ -129,6 +169,7 @@
                                         <tr><td>Channel/RSSI</td><td><span id='wifi_channel'></span> / <span id='rssi'></span> dbm</td></tr>
                                         <tr><td>SketchSize/FreeSketchSpace</td><td><span id='sketch_size'></span> / <span id='free_sketch_size'></span></td></tr>
                                         <tr><td>Dallas Address</td><td><div id='dallas_addr'></div></td></tr>
+                                        <tr><td>Epoch Time</td><td><div id='time_epoch' class='timeEpoch'>21412412412</div></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,7 +204,6 @@
 
         $('.easy-pie-chart.current-temperature').each(function(){
             var tmp = $(this).data('percent');
-            console.log(tmp);
             $(this).easyPieChart({
                 barColor: function (percent) {
                     return tempToColor(percent);
@@ -206,12 +246,11 @@
 
         $("#testNumber").change(function() {
             var tmp = $(this).val();
-
             $(".percent").text(tmp);
             $('.easy-pie-chart.current-temperature').css('color', tempToColor(tmp));
             $('.easy-pie-chart.current-temperature').data('easyPieChart').update(tmp);
         });
-        // A $( document ).ready() block.
+
         $( document ).ready(function() {
             console.log( "ready!" );
             setBoilerMode();
@@ -219,52 +258,54 @@
 
         //changeTemperatureGraph();
     </script>
-    <table style='width: 100%;' class="records_list table table-striped table-condensed">
-        <thead>
-        <tr>
-            <th>Controll</th>
-            <th>Info</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td>Time</td>
-                        <td><div id='time_str' class='time'></div><div id='time_epoch' class='timeEpoch'></div></td>
-                    </tr>
-                    <tr class='temperature'>
-                        <td>Current Temp</td>
-                        <td><h2><span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]</h2></td>
-                    </tr>
-                    <tr><td>Refresh</td>
-                        <td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>
-                    </tr>
-                    <tr id='enableBoiler'>
-                        <td>Enable Boiler</td>
-                        <td><form action='/eb'><input style='font-size:72px' type='submit' value='Enable Boiler'></form></td>
-                    </tr>
-                    <tr id='disableBoiler'>
-                        <td>Disable Boiler</td>
-                        <td><form action='/db'><input style='font-size:72px' type='submit' value='Disable Boiler'></form></td>
-                    </tr>
-                    <tr id='keepMode'>
-                        <td>Keep</td>
-                        <td>
-                            <form action='/keep'>
-                                <input style='font-size:22px' type='number' value='40' name='temperatureKeep' maxlength='2'>
-                                <input style='font-size:62px' type='submit' value='Keep'>
-                            </form>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    {#<table style='width: 100%;' class="records_list table table-striped table-condensed">#}
+        {#<thead>#}
+        {#<tr>#}
+            {#<th>Controll</th>#}
+            {#<th>Info</th>#}
+        {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#<tr>#}
+            {#<td>#}
+                {#<table>#}
+                    {#<tbody>#}
+                    {#<tr>#}
+                        {#<td>Time</td>#}
+                        {#<td><div id='time_str' class='time'></div><div id='time_epoch' class='timeEpoch'></div></td>#}
+                    {#</tr>#}
+                    {#<tr class='temperature'>#}
+                        {#<td>Current Temp</td>#}
+                        {#<td><h2><span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]</h2></td>#}
+                    {#</tr>#}
+                    {#<tr><td>Refresh</td>#}
+                        {#<td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>#}
+                    {#</tr>#}
+                    {#<tr id='enableBoiler'>#}
+                        {#<td>Enable Boiler</td>#}
+                        {#<td><form action='/eb'><input style='font-size:22px' type='submit' value='Enable Boiler'></form></td>#}
+                    {#</tr>#}
+                    {#<tr id='disableBoiler'>#}
+                        {#<td>Disable Boiler</td>#}
+                        {#<td><form action='/db'><input style='font-size:22px' type='submit' value='Disable Boiler'></form></td>#}
+                    {#</tr>#}
+                    {#<tr id='keepMode'>#}
+                        {#<td>Keep</td>#}
+                        {#<td>#}
+                            {#<form action='/keep'>#}
+                                {#<input style='font-size:22px' type='number' value='40' name='temperatureKeep' maxlength='2'>#}
+                                {#<input style='font-size:62px' type='submit' value='Keep'>#}
+                            {#</form>#}
+                        {#</td>#}
+                    {#</tr>#}
+                    {#</tbody>#}
+                {#</table>#}
+            {#</td>#}
+        {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+
+
     {##}
     {#<h1>Boilerviewonlies list</h1>#}
 
