@@ -29,57 +29,43 @@
 
                     <div class="widget-body">
                         <div class="widget-main padding-6">
-                            <table style="width: 100%">
+                            <table class="table table-hover table-condensed">
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                            <table style="width: 100%">
-                                <tr>
-                                    <td>
-                                        <h4>Current MODE<span id='bolier_mode' class="badge boilerMode">0</span></h4>
-                                    </td>
-                                    <td style="width: 30%;">
+
+                                    <th>Current MODE</th>
+                                    <td style="text-align: center"><span id='bolier_mode' class="badge label-xlg boilerMode">0</span></td>
+                                    <th>Time</th>
+                                    <th>
                                         <span>Current temperature</span>
-                                    </td>
+                                    </th>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div id='time_str' class='time'>12:13:14</div>
-                                        <label>
-                                            <input name="switch-field-1" class="ace ace-switch ace-switch-4 btn-rotate" type="checkbox">
-                                            <span class="lbl"></span>
-                                        </label>
+                                    <th>Status</th>
+                                    <td style="text-align: center">
+                                        <span id="boiler_status_label" class="label label-xlg arrowed arrowed-right">On</span>
+                                        {#<span class="label label-xlg label-success arrowed arrowed-right">OFF</span>#}
                                     </td>
-                                    <td>
-                                        <div class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
+                                    <td style="text-align: center"><div id='time_str' class='time'>12:13:14</div></td>
+                                    <td rowspan="2">
+                                        <div style="float: right" class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
                                             <span class="percent">65</span> C
                                         </div>
-
                                     </td>
                                 </tr>
+                                <th>On/Off Operation</th>
+                                <td colspan="2" style="text-align: center">
+                                    <label>
+                                        <input name="switch-field-1" class="ace ace-switch ace-switch-4 btn-rotate" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+                                </tr>
                             </table>
-                                {#<span id='bolier_mode_unknown' class="badge boilerMode">0</span>#}
-                                {#<span id='bolier_mode_manual' class="badge badge-danger boilerMode">1</span>#}
-                                {#<span id='bolier_mode_auto' class="badge badge-info boilerMode">2</span>#}
-                                {#<span id='bolier_mode_keep' class="badge badge-success boilerMode">3</span>#}
-                                {#<span id='bolier_mode_smart_keep' class="badge badge-pink boilerMode">4</span>#}
-
+                            {#<span id='bolier_mode_unknown' class="badge boilerMode">0</span>#}
+                            {#<span id='bolier_mode_manual' class="badge badge-danger boilerMode">1</span>#}
+                            {#<span id='bolier_mode_auto' class="badge badge-info boilerMode">2</span>#}
+                            {#<span id='bolier_mode_keep' class="badge badge-success boilerMode">3</span>#}
+                            {#<span id='bolier_mode_smart_keep' class="badge badge-pink boilerMode">4</span>#}
                         </div>
                     </div>
                 </div>
@@ -303,6 +289,21 @@
                 + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
             $("#local_time").html(datetime)
+            $("#max_temperature").html("1")
+            $("#boiler_status_label").html($("#boiler_status").html());
+            var boiler_status = parseInt($("#boiler_status_label").html());
+            if(boiler_status == 1){
+                $("#boiler_status_label").toggleClass('label-danger');
+                $("#boiler_status_label").html("On");
+            }
+            else if(boiler_status == 0){
+                $("#boiler_status_label").toggleClass('label-success');
+                $("#boiler_status_label").html("OFF");
+            }
+            else{
+                $("#boiler_status_label").toggleClass('label-warning');
+                $("#boiler_status_label").html("ERROR");
+            }
         });
 
         //changeTemperatureGraph();
