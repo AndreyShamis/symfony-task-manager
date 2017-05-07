@@ -5,8 +5,9 @@
         <div class="header clearfix">
             <nav>
                 <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><span id="local_time"></span></li>
                     <li role="presentation" class="active"><a class="refresh_page" href="#" title="Refresh"><i class="ace-icon fa fa-refresh bigger-160"> </i></a></li>
-                    {#<li role="presentation"><a href="#">About</a></li>#}
+
                     {#<li role="presentation"><a href="#">Contact</a></li>#}
                 </ul>
             </nav>
@@ -28,41 +29,57 @@
 
                     <div class="widget-body">
                         <div class="widget-main padding-6">
-                            <div class="tab-content">
-                                <div id="main" class="tab-pane active">
-                                    <table style="width: 100%">
-                                        <tr>
-                                            <td>
-                                                <h4>Current MODE<span id='bolier_mode' class="badge boilerMode">2</span></h4>
-                                            </td>
-                                            <td style="width: 30%;">
-                                                <span>Current temperature</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div id='time_str' class='time'>12:13:14</div>
-                                                <label>
-                                                    <input name="switch-field-1" class="ace ace-switch ace-switch-4 btn-rotate" type="checkbox">
-                                                    <span class="lbl"></span>
-                                                </label>
-                                            </td>
-                                            <td>
-                                                <div class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
-                                                    <span class="percent">65</span> C
-                                                </div>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <h4>Current MODE<span id='bolier_mode' class="badge boilerMode">0</span></h4>
+                                    </td>
+                                    <td style="width: 30%;">
+                                        <span>Current temperature</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div id='time_str' class='time'>12:13:14</div>
+                                        <label>
+                                            <input name="switch-field-1" class="ace ace-switch ace-switch-4 btn-rotate" type="checkbox">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <div class="easy-pie-chart current-temperature" data-percent="65" style="height:75px; width: 75px; line-height: 74px;">
+                                            <span class="percent">65</span> C
+                                        </div>
 
-                                            </td>
-                                        </tr>
-                                    </table>
-                                        {#<span id='bolier_mode_unknown' class="badge boilerMode">0</span>#}
-                                        {#<span id='bolier_mode_manual' class="badge badge-danger boilerMode">1</span>#}
-                                        {#<span id='bolier_mode_auto' class="badge badge-info boilerMode">2</span>#}
-                                        {#<span id='bolier_mode_keep' class="badge badge-success boilerMode">3</span>#}
-                                        {#<span id='bolier_mode_smart_keep' class="badge badge-pink boilerMode">4</span>#}
+                                    </td>
+                                </tr>
+                            </table>
+                                {#<span id='bolier_mode_unknown' class="badge boilerMode">0</span>#}
+                                {#<span id='bolier_mode_manual' class="badge badge-danger boilerMode">1</span>#}
+                                {#<span id='bolier_mode_auto' class="badge badge-info boilerMode">2</span>#}
+                                {#<span id='bolier_mode_keep' class="badge badge-success boilerMode">3</span>#}
+                                {#<span id='bolier_mode_smart_keep' class="badge badge-pink boilerMode">4</span>#}
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +97,7 @@
                         <div class="widget-toolbar no-border">
                             <ul class="nav nav-tabs" id="myTab">
                                 <li class="active">
-                                    <a data-toggle="tab" href="#main" aria-expanded="true">Main</a>
+                                    <a data-toggle="tab" href="#main_info" aria-expanded="true">Main</a>
                                 </li>
 
                                 <li class="">
@@ -97,7 +114,7 @@
                     <div class="widget-body">
                         <div class="widget-main padding-6">
                             <div class="tab-content">
-                                <div id="main" class="tab-pane active">
+                                <div id="main_info" class="tab-pane active">
 
                                     <table style="width: 100%">
                                         <tr>
@@ -278,6 +295,14 @@
         $( document ).ready(function() {
             console.log( "ready!" );
             setBoilerMode();
+            var currentdate = new Date();
+            var datetime = " " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            $("#local_time").html(datetime)
         });
 
         //changeTemperatureGraph();
