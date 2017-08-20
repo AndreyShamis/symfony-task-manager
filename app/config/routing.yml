@@ -1,3 +1,8 @@
+werd_game:
+    resource: "@WerdGameBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 iot_boiler_view_only:
     resource: "@IotBundle/Controller/BoilerViewOnlyController.php"
     type:     annotation

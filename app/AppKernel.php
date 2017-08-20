@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Werd\TesterBundle\TesterBundle(),
             new Werd\IotBundle\IotBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new WerdGameBundle\WerdGameBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
