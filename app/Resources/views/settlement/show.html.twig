@@ -1,0 +1,40 @@
+{% extends 'WerdGameBundle:Default:index.html.twig' %}
+
+{% block content %}
+    <h1>Settlement</h1>
+
+    <table class="records_list table table-striped table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ settlement.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ settlement.name }}</td>
+            </tr>
+            <tr>
+                <th>Coordinate X</th>
+                <td>{{ settlement.coordinateX }}</td>
+            </tr>
+            <tr>
+                <th>Coordinate Y</th>
+                <td>{{ settlement.coordinateY }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('settlement_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('settlement_edit', { 'id': settlement.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

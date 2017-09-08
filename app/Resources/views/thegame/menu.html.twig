@@ -30,22 +30,22 @@
         <b class="arrow"></b>
     </li>
 
-    {#<li class="{% if route == 'setup' %}active{% endif %}">#}
-    {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">#}
-    {#<i class="menu-icon fa fa-picture-o"></i>#}
-    {#<span class="menu-text"> Setups </span>#}
-    {#</a>#}
+    <li class="{% if route starts with 'mine_' %}active{% endif %}">
+        <a href="{{asset(path('mine_index'))}}">
+            <i class="menu-icon fa fa-picture-o"></i>
+            <span class="menu-text"> Mines </span>
+    </a>
 
-    {#<b class="arrow"></b>#}
-    {#</li>#}
+    <b class="arrow"></b>
+    </li>
 
-    {#<li class="{% if route starts with 'bkc' %}active{% endif %}">#}
-    {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">#}
-    {#<i class="menu-icon fa fa-list"></i>#}
-    {#<span class="menu-text"> BKC </span>#}
-    {#</a>#}
-    {#<b class="arrow"></b>#}
-    {#</li>#}
+    <li class="{% if route starts with 'settlement_' %}active{% endif %}">
+        <a href="{{asset(path('settlement_index'))}}">
+            <i class="menu-icon fa fa-list"></i>
+            <span class="menu-text"> Settlement </span>
+        </a>
+    <b class="arrow"></b>
+    </li>
 
     {#<li class="{% if route starts with 'cq_' %}active{% endif %}">#}
     {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >#}

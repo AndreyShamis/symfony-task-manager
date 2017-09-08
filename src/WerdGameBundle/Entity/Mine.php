@@ -372,4 +372,13 @@ class Mine
     {
         return $this->settlementId;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
