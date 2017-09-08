@@ -1,0 +1,55 @@
+{% extends 'WerdGameBundle:Default:index.html.twig' %}
+
+{% block content %}
+    <h1>Typeheroes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Powerattack</th>
+                <th>Powerattackspeed</th>
+                <th>Powerattackaccuracy</th>
+                <th>Powerdefense</th>
+                <th>Powerdefenseagility</th>
+                <th>Powermovement</th>
+                <th>Poweraccuracy</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeHero in typeHeroes %}
+            <tr>
+                <td><a href="{{ path('typehero_show', { 'id': typeHero.id }) }}">{{ typeHero.id }}</a></td>
+                <td>{{ typeHero.name }}</td>
+                <td>{{ typeHero.price }}</td>
+                <td>{{ typeHero.powerAttack }}</td>
+                <td>{{ typeHero.powerAttackSpeed }}</td>
+                <td>{{ typeHero.powerAttackAccuracy }}</td>
+                <td>{{ typeHero.powerDefense }}</td>
+                <td>{{ typeHero.powerDefenseAgility }}</td>
+                <td>{{ typeHero.powerMovement }}</td>
+                <td>{{ typeHero.powerAccuracy }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typehero_show', { 'id': typeHero.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typehero_edit', { 'id': typeHero.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typehero_new') }}">Create a new typeHero</a>
+        </li>
+    </ul>
+{% endblock %}

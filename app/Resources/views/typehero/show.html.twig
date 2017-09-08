@@ -1,0 +1,64 @@
+{% extends 'WerdGameBundle:Default:index.html.twig' %}
+
+{% block content %}
+    <h1>Typehero</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ typeHero.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ typeHero.name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ typeHero.price }}</td>
+            </tr>
+            <tr>
+                <th>Powerattack</th>
+                <td>{{ typeHero.powerAttack }}</td>
+            </tr>
+            <tr>
+                <th>Powerattackspeed</th>
+                <td>{{ typeHero.powerAttackSpeed }}</td>
+            </tr>
+            <tr>
+                <th>Powerattackaccuracy</th>
+                <td>{{ typeHero.powerAttackAccuracy }}</td>
+            </tr>
+            <tr>
+                <th>Powerdefense</th>
+                <td>{{ typeHero.powerDefense }}</td>
+            </tr>
+            <tr>
+                <th>Powerdefenseagility</th>
+                <td>{{ typeHero.powerDefenseAgility }}</td>
+            </tr>
+            <tr>
+                <th>Powermovement</th>
+                <td>{{ typeHero.powerMovement }}</td>
+            </tr>
+            <tr>
+                <th>Poweraccuracy</th>
+                <td>{{ typeHero.powerAccuracy }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typehero_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('typehero_edit', { 'id': typeHero.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

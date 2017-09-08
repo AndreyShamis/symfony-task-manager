@@ -28,7 +28,6 @@ class User
      */
     private $name;
 
-
     /**
      * Get id
      *
