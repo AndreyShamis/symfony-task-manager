@@ -47,21 +47,21 @@ class Mine
      *
      * @ORM\Column(name="resourcePeerHour", type="integer", options={"unsigned"=true, "default"=3600})
      */
-    private $resourcePeerHour;
+    private $resourcePeerHour = 3600;
 
     /**
      * @var int
      *
      * @ORM\Column(name="resourceCurrent", type="integer", options={"unsigned"=true, "default"=0})
      */
-    private $resourceCurrent;
+    private $resourceCurrent = 0;
 
     /**
      * @var int
      *
      * @ORM\Column(name="resourceMax", type="integer", options={"unsigned"=true, "default"=36000})
      */
-    private $resourceMax;
+    private $resourceMax = 36000;
 
     /**
      * @var int
@@ -82,7 +82,7 @@ class Mine
      *
      * @ORM\Column(name="nextLevelPrice", type="integer", options={"unsigned"=true, "default"=12000})
      */
-    private $nextLevelPrice;
+    private $nextLevelPrice = 12000;
 
     /**
      * @var int
