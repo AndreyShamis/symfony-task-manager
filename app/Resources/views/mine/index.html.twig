@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mines list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Resourcepeerhour</th>
+                <th>Resourcecurrent</th>
+                <th>Resourcemax</th>
+                <th>Resourcelastflush</th>
+                <th>Level</th>
+                <th>Nextlevelprice</th>
+                <th>Coordinatex</th>
+                <th>Coordinatey</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mine in mines %}
+            <tr>
+                <td><a href="{{ path('mine_show', { 'id': mine.id }) }}">{{ mine.id }}</a></td>
+                <td>{{ mine.name }}</td>
+                <td>{{ mine.resourcePeerHour }}</td>
+                <td>{{ mine.resourceCurrent }}</td>
+                <td>{{ mine.resourceMax }}</td>
+                <td>{{ mine.resourceLastFlush }}</td>
+                <td>{{ mine.level }}</td>
+                <td>{{ mine.nextLevelPrice }}</td>
+                <td>{{ mine.coordinateX }}</td>
+                <td>{{ mine.coordinateY }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mine_show', { 'id': mine.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mine_edit', { 'id': mine.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mine_new') }}">Create a new mine</a>
+        </li>
+    </ul>
+{% endblock %}

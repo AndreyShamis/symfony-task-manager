@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mine</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mine.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mine.name }}</td>
+            </tr>
+            <tr>
+                <th>Resourcepeerhour</th>
+                <td>{{ mine.resourcePeerHour }}</td>
+            </tr>
+            <tr>
+                <th>Resourcecurrent</th>
+                <td>{{ mine.resourceCurrent }}</td>
+            </tr>
+            <tr>
+                <th>Resourcemax</th>
+                <td>{{ mine.resourceMax }}</td>
+            </tr>
+            <tr>
+                <th>Resourcelastflush</th>
+                <td>{{ mine.resourceLastFlush }}</td>
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>{{ mine.level }}</td>
+            </tr>
+            <tr>
+                <th>Nextlevelprice</th>
+                <td>{{ mine.nextLevelPrice }}</td>
+            </tr>
+            <tr>
+                <th>Coordinatex</th>
+                <td>{{ mine.coordinateX }}</td>
+            </tr>
+            <tr>
+                <th>Coordinatey</th>
+                <td>{{ mine.coordinateY }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mine_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mine_edit', { 'id': mine.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
