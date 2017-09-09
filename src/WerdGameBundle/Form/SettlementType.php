@@ -13,7 +13,7 @@ class SettlementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('coordinateX')->add('coordinateY')->add('userId');
+        $builder->add('name')->add('coordinateX')->add('coordinateY')->add('userId')->add('mine');
     }
     
     /**

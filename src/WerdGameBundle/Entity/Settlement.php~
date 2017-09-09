@@ -49,6 +49,12 @@ class Settlement
      */
     private $coordinateY;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="WerdGameBundle\Entity\Mine")
+     * @ORM\JoinColumn(name="mine", fieldName="id", referencedColumnName="id")
+     * @ORM\OrderBy({"id" = "ASC"})
+     */
+    private $mine;
 
     /**
      * Get id

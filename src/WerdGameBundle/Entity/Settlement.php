@@ -49,6 +49,20 @@ class Settlement
      */
     private $coordinateY;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="WerdGameBundle\Entity\Mine")
+     * @ORM\JoinColumn(name="mine", fieldName="id", referencedColumnName="id")
+     * @ORM\OrderBy({"id" = "ASC"})
+     */
+    private $mine;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->mine = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -163,5 +177,39 @@ class Settlement
     public function getUserId()
     {
         return $this->userId;
+    }
+
+    /**
+     * Add mine
+     *
+     * @param \WerdGameBundle\Entity\Mine $mine
+     *
+     * @return Settlement
+     */
+    public function addMine(\WerdGameBundle\Entity\Mine $mine)
+    {
+        $this->mine[] = $mine;
+
+        return $this;
+    }
+
+    /**
+     * Remove mine
+     *
+     * @param \WerdGameBundle\Entity\Mine $mine
+     */
+    public function removeMine(\WerdGameBundle\Entity\Mine $mine)
+    {
+        $this->mine->removeElement($mine);
+    }
+
+    /**
+     * Get mine
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMine()
+    {
+        return $this->mine;
     }
 }

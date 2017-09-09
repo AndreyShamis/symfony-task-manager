@@ -6,14 +6,6 @@
     <table class="records_list table table-striped table-condensed">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ mine.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ mine.name }}</td>
-            </tr>
-            <tr>
                 <th>Resourcepeerhour</th>
                 <td>{{ mine.resourcePeerHour }}</td>
             </tr>
@@ -30,6 +22,18 @@
                 <td>{{ mine.resourceLastFlush }}</td>
             </tr>
             <tr>
+                <th>Type</th>
+                <td>{{ mine.type }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ mine.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ mine.name }}</td>
+            </tr>
+            <tr>
                 <th>Level</th>
                 <td>{{ mine.level }}</td>
             </tr>
@@ -38,12 +42,28 @@
                 <td>{{ mine.nextLevelPrice }}</td>
             </tr>
             <tr>
+                <th>Life</th>
+                <td>{{ mine.life }}</td>
+            </tr>
+            <tr>
+                <th>Defense</th>
+                <td>{{ mine.defense }}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if mine.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
                 <th>Coordinatex</th>
                 <td>{{ mine.coordinateX }}</td>
             </tr>
             <tr>
                 <th>Coordinatey</th>
                 <td>{{ mine.coordinateY }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ mine.size }}</td>
             </tr>
         </tbody>
     </table>
