@@ -15,9 +15,21 @@ class MineType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('resourcePeerHour')->add('resourceCurrent')->add('resourceMax')->add('resourceLastFlush')->
+        $builder->add('resourcePeerHour')->
+        add('resourceCurrent')->
+        add('resourceMax')->
+        add('resourceLastFlush')->
         add('type', ChoiceType::class , $this->buildFormType())->
-        add('name')->add('level')->add('nextLevelPrice')->add('life')->add('defense')->add('enabled')->add('coordinateX')->add('coordinateY')->add('size')->add('settlementId')->add('userId');
+        add('name')->add('level')->
+        add('nextLevelPrice')->
+        add('life')->
+        add('defense')->
+        add('enabled')->
+        add('coordinateX')->
+        add('coordinateY')->
+        add('size')->
+        add('settlementId');
+        //add('userId');
     }
     
     /**

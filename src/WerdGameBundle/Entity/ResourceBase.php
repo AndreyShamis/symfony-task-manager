@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 ///**
 // * ResourceBase
 // *
-// * @ORM\Table(name="resource_base")
+// * @ORM\Table(name="g_resource_base")
 // * @ORM\Entity(repositoryClass="WerdGameBundle\Repository\DELResourceBaseRepository")
 // */
 class ResourceBase
@@ -19,14 +19,14 @@ class ResourceBase
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
-    private $name;
+    protected $name;
 
 
     /**

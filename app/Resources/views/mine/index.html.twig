@@ -6,13 +6,15 @@
     <table class="records_list table table-striped table-condensed">
         <thead>
             <tr>
+                <th>Id</th>
+                <th>Name</th>
                 <th>Resourcepeerhour</th>
                 <th>Resourcecurrent</th>
                 <th>Resourcemax</th>
                 <th>Resourcelastflush</th>
                 <th>Type</th>
-                <th>Id</th>
-                <th>Name</th>
+
+
                 <th>Level</th>
                 <th>Nextlevelprice</th>
                 <th>Life</th>
@@ -27,13 +29,14 @@
         <tbody>
         {% for mine in mines %}
             <tr>
+                <td><a href="{{ path('mine_show', { 'id': mine.id }) }}">{{ mine.id }}</a></td>
+                <td><a href="{{ path('mine_show', { 'id': mine.id }) }}">{{ mine.name }}</a></td>
                 <td><a href="{{ path('mine_show', { 'id': mine.id }) }}">{{ mine.resourcePeerHour }}</a></td>
                 <td>{{ mine.resourceCurrent }}</td>
                 <td>{{ mine.resourceMax }}</td>
                 <td>{{ mine.resourceLastFlush }}</td>
                 <td>{{ mine.type }}</td>
-                <td>{{ mine.id }}</td>
-                <td>{{ mine.name }}</td>
+
                 <td>{{ mine.level }}</td>
                 <td>{{ mine.nextLevelPrice }}</td>
                 <td>{{ mine.life }}</td>

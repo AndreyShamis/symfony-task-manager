@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Mine
  *
- * @ORM\Table(name="mine")
+ * @ORM\Table(name="g_mine")
  * @ORM\Entity(repositoryClass="WerdGameBundle\Repository\MineRepository")
  */
 class Mine extends MineBase

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Settlement
  *
- * @ORM\Table(name="settlement")
+ * @ORM\Table(name="g_settlement")
  * @ORM\Entity(repositoryClass="WerdGameBundle\Repository\SettlementRepository")
  */
 class Settlement
@@ -40,21 +40,21 @@ class Settlement
      *
      * @ORM\Column(name="coordinateX", type="integer", options={"unsigned"=true})
      */
-    private $coordinateX;
+    private $coordinateX = 0;
 
     /**
      * @var int
      *
      * @ORM\Column(name="coordinateY", type="integer", options={"unsigned"=true})
      */
-    private $coordinateY;
+    private $coordinateY = 0;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="WerdGameBundle\Entity\Mine")
-     * @ORM\JoinColumn(name="mine", fieldName="id", referencedColumnName="id")
-     * @ORM\OrderBy({"id" = "ASC"})
-     */
-    private $mine;
+//    /**
+//     * @ORM\ManyToMany(targetEntity="WerdGameBundle\Entity\Mine")
+//     * @ORM\JoinColumn(name="mine", fieldName="id", referencedColumnName="id")
+//     * @ORM\OrderBy({"id" = "ASC"})
+//     */
+//    private $mine;
 
     /**
      * Constructor

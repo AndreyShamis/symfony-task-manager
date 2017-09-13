@@ -15,7 +15,7 @@ use WerdGameBundle\Model\MineInterface;
  * BuildingBase
  *
  */
-class BuildingBase implements MineInterface
+class BuildingBase
 {
     /**
      * @var int
@@ -74,14 +74,14 @@ class BuildingBase implements MineInterface
      *
      * @ORM\Column(name="coordinateX", type="integer", options={"unsigned"=true})
      */
-    protected $coordinateX;
+    protected $coordinateX = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="coordinateY", type="integer", options={"unsigned"=true})
      */
-    protected $coordinateY;
+    protected $coordinateY = 0;
 
     /**
      * @var int
@@ -92,17 +92,17 @@ class BuildingBase implements MineInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="WerdGameBundle\Entity\Settlement")
-     * @ORM\JoinColumn(name="settlement", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
+     * @ORM\JoinColumn(name="settlement_id", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
      * @ORM\OrderBy({"id" = "ASC"})
      */
     protected $settlementId;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="WerdGameBundle\Entity\User")
-     * @ORM\JoinColumn(name="user", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
-     * @ORM\OrderBy({"id" = "ASC"})
-     */
-    protected $userId;
+//    /**
+//     * @ORM\ManyToOne(targetEntity="WerdGameBundle\Entity\User")
+//     * @ORM\JoinColumn(name="user", fieldName="id", referencedColumnName="id", onDelete="SET NULL" )
+//     * @ORM\OrderBy({"id" = "ASC"})
+//     */
+//    protected $userId;
 
     //******************************************************************************************************************
     //------------------------------------------------------------------------------------------------------------------
@@ -255,29 +255,29 @@ class BuildingBase implements MineInterface
         return $this;
     }
 
-    /**
-     * Set userId
-     *
-     * @param \WerdGameBundle\Entity\User $userId
-     *
-     * @return BuildingBase
-     */
-    public function setUserId(User $userId = null)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \WerdGameBundle\Entity\User
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
+//    /**
+//     * Set userId
+//     *
+//     * @param \WerdGameBundle\Entity\User $userId
+//     *
+//     * @return BuildingBase
+//     */
+//    public function setUserId(User $userId = null)
+//    {
+//        $this->userId = $userId;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get userId
+//     *
+//     * @return \WerdGameBundle\Entity\User
+//     */
+//    public function getUserId()
+//    {
+//        return $this->userId;
+//    }
 
     /**
      * Set settlementId

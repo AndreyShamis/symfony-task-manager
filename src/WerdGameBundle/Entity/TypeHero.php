@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * TypeHero
  *
- * @ORM\Table(name="type_hero")
+ * @ORM\Table(name="g_type_hero")
  * @ORM\Entity(repositoryClass="WerdGameBundle\Repository\TypeHeroRepository")
  * @UniqueEntity("name")
  */

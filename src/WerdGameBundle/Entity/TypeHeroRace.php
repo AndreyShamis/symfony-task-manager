@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TypeHeroRace
  *
- * @ORM\Table(name="type_hero_race")
+ * @ORM\Table(name="g_type_hero_race")
  * @ORM\Entity(repositoryClass="WerdGameBundle\Repository\TypeHeroRaceRepository")
  */
 class TypeHeroRace

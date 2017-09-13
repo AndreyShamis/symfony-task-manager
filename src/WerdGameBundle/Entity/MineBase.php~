@@ -13,6 +13,7 @@ use WerdGameBundle\Model\MineType;
 
 //implements MineInterface
 /**
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
 class MineBase extends BuildingBase
