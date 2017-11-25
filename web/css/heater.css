@@ -1,0 +1,27 @@
+.bg_green{
+    background:palegreen;
+}
+.bg_red{
+    background:tomato;
+}
+body{
+    background:MintCream;
+}
+
+.time{
+    background-color: #0D3349;
+    color: #a5dce4;
+    font-size: 28px;
+    text-align: center;
+}
+.timeEpoch{
+    font-size: 6px;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+td{
+    vertical-align: top;
+}
