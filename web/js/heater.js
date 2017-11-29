@@ -102,33 +102,58 @@ function buildContentBody(){
                 <td><div id='time_str' class='time'></div><div id='time_epoch' class='timeEpoch'></div></td>
             </tr>
             <tr class='temperature'>
-                <td>Current Temp Outside</td>
-                <td><h2><span id='current_temperature'></span>C[Max possible temperature <span id='max_temperature'></span>]</h2></td>
+                <td>Current Tmp Outside</td>
+                <td>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='width: 60%;font-size: 48px;font-weight: bolder;vertical-align: top' rowspan='2'>&nbsp;<span id='current_temperature'></span> C</td>
+                            <td style='vertical-align: bottom'>Max possible tmp is</td>
+                        </tr>
+                        <tr>
+                            <td style='text-align: right;'>[<span id='max_temperature'></span>] C</td>
+                        </tr>
+                    </table>
             </tr>
             <tr class='temperature'>
-                <td>Current Temp Inside</td>
-                <td><h2><span id='inside_temperature'></span>C[Max  temperature <span id='max_temperature_inside'></span>]</h2></td>
+                <td>Current Tmp Inside</td>
+                <td>
+                    <table style='width: 100%;'>
+                        <tr>
+                            <td style='width: 60%;font-size: 48px;font-weight: bolder;vertical-align: top' rowspan='2'>&nbsp;<span id='inside_temperature'></span> C</td>
+                            <td style='vertical-align: bottom'>Max possible tmp is</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style='text-align: right;'>[<span id='max_temperature_inside'></span>] C</td>
+                        </tr>
+                    </table>
+                    </td>
             </tr>
             <tr><td>Refresh</td>
                 <td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>
-            </tr>
-            <tr id='enableLoad'>
-                <td>Enable Load</td>
-                <td><form action='/el'><input style='font-size:72px' type='submit' value='Enable Load'></form></td>
-            </tr>
-            <tr id='disableLoad'>
-                <td>Disable Load</td>
-                <td><form action='/dl'><input style='font-size:72px' type='submit' value='Disable Load'></form></td>
             </tr>
             <tr id='keepMode'>
                 <td>Keep</td>
                 <td>
                     <form action='/keep'>
-                        <input style='font-size:22px' type='number' value='22' name='temperatureKeep' id='temperatureKeep' maxlength='2'>
-                        <input style='font-size:62px' type='submit' value='Keep'>
+                        <input style='font-size:22px' type='number' step='any' value='22' name='temperatureKeep' id='temperatureKeep' maxlength='5' />
+                        <input style='font-size:62px' type='submit' value='Keep'/>
                     </form>
                 </td>
             </tr>
+            <tr id='emptyRow'>
+                <td></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr id='enableLoad'>
+                <td>Enable Load</td>
+                <td><form action='/el'><input style='font-size:42px' type='submit' value='Enable Load'></form></td>
+            </tr>
+            <tr id='disableLoad'>
+                <td>Disable Load</td>
+                <td><form action='/dl'><input style='font-size:42px' type='submit' value='Disable Load'></form></td>
+            </tr>
+
             </tbody>
             </table>
         </td>
@@ -152,10 +177,10 @@ function buildContentBody(){
                 <tr class="compactHidden"><td>SketchSize/FreeSketchSpace</td><td><span id='sketch_size'></span> / <span id='free_sketch_size'></span></td></tr>
                 <tr><td>Dallas Outside Address</td><td><div id='dallas_addr'></div></td></tr>
                 <tr><td>Dallas Count</td><td><div id='dallas_count'></div></td></tr>
-                <tr><td>Dallas Addresses</td><td><div id='dallas_addrs'></div></td></tr>
+                <tr><td>Dallas Addresses</td><td><div id='dallas_addrs' style='font-size: 10px'></div></td></tr>
                 <tr><td>Outside Dallas Index</td><td><div id='outside_therm_index'></div></td></tr>
                 <tr><td>Temperature Precision</td><td><div id='temperature_precision'></div></td></tr>
-                <tr><td>Help</td><td><div id='help_box' style="font-size: 8px"></div></td></tr>
+                <tr><td>Help</td><td><div id='help_box' style='font-size: 8px'></div></td></tr>
             </tbody>
             </table>
         </td>
