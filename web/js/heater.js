@@ -34,7 +34,7 @@ function onLoadPageLoad(){
     var dev_count = dev_count_obj.length;
     $("#dallas_count").text(dev_count);
     $("#help_box").html("/setDallasIndex?outTmpIndex=1<br/>/setDallasIndex?outTmpIndex=0");
-    $("#temperatureKeep").val($("#keep_temperature").text());
+    $("#temperatureKeep").val(parseFloat($("#keep_temperature").text()));
     setLoadTimeout();
     colorsOnLoad();
 }
@@ -136,7 +136,7 @@ function buildContentBody(){
                 <td>Keep</td>
                 <td>
                     <form action='/keep'>
-                        <input style='font-size:22px' type='number' step='any' value='22' name='temperatureKeep' id='temperatureKeep' maxlength='5' />
+                        <input style='font-size:22px' type='number' step='0.1' value='22' name='temperatureKeep' id='temperatureKeep' max='50' min='10' />
                         <input style='font-size:62px' type='submit' value='Keep'/>
                     </form>
                 </td>
@@ -161,8 +161,9 @@ function buildContentBody(){
             <table>
             <tbody>
                 <tr><td>Heater MODE</td><td><div id='load_mode' class='loadMode' style='font-size: 18px;'>1</div></td></tr>
-                <tr class='loadModeDescLine'><td>Load MODE Desc</td><td><div id='load_mode_description' class='loadModeDesc'>Keep TMP=<span id='keep_temperature'></span> C </div></td></tr>
+                <tr class='loadModeDescLine'><td>Load MODE Desc</td><td><div id='load_mode_description' class='loadModeDesc'>Keep TMP=<span style='font-size: 24px;font-weight: bolder;' id='keep_temperature'></span> C </div></td></tr>
                 <tr><td>Load status</td><td><div id='load_status' class='loadStatus'>-1</div></td></tr>
+                <tr><td>Internet access</td><td><div id='internet_access' class='internet_access'>-1</div></td></tr>
                 <tr><td>Disabled by watch</td><td><div class='disabledByWatchDog'>0</div></td></tr>
                 <tr class="compactHidden"><td>FlashChipId</td><td><div id='flash_chip_id'></div></td></tr>
                 <tr class="compactHidden"><td>FlashChipSize</td><td><div id='flash_chip_size'></div></td></tr>

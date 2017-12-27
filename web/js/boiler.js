@@ -30,6 +30,7 @@ function onBoilerPageLoad(){
         $("#"+key).text(boiler[key]);
         console.log(key + ":" + boiler[key]);
     }
+    $("#temperatureKeep").val($("#keep_temperature").text());
     setBoilerTimeout();
     colorsOnLoad();
 }
@@ -95,7 +96,7 @@ function buildContentBody(){
                 <td>Keep</td>
                 <td>
                     <form action='/keep'>
-                        <input style='font-size:22px' type='number' value='40' name='temperatureKeep' maxlength='2'>
+                        <input style='font-size:22px' type='number' step='any' value='40' name='temperatureKeep' id='temperatureKeep' maxlength='5' />
                         <input style='font-size:62px' type='submit' value='Keep'>
                     </form>
                 </td>
@@ -106,8 +107,8 @@ function buildContentBody(){
         <td>
             <table>
             <tbody>
-                <tr><td>Boiler MODE</td><td><div id='bolier_mode' clas='boilerMode'>1</div></td></tr>
-                <tr class='boilerModeDescLine'><td>Boiler MODE Desc</td><td><div id='boiler_mode_description' clas='boilerModeDesc'>Keep TMP=40.00 C </div></td></tr>
+                <tr><td>Boiler MODE</td><td><div id='bolier_mode' class='boilerMode'>1</div></td></tr>
+                <tr class='boilerModeDescLine'><td>Boiler MODE Desc</td><td><div id='boiler_mode_description' class='boilerModeDesc'>Keep TMP=<span id='keep_temperature'></span> C </div></td></tr>
                 <tr><td>Boiler status</td><td><div id='boiler_status' class='boilerStatus'>-1</div></td></tr>
                 <tr><td>Disabled by watch</td><td><div class='disabledByWatchDog'>0</div></td></tr>
                 <tr><td>FlashChipId</td><td><div id='flash_chip_id'></div></td></tr>
