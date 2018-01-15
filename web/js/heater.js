@@ -130,7 +130,7 @@ function buildContentBody(){
                     </td>
             </tr>
             <tr><td>Refresh</td>
-                <td><form action='/'><input style='font-size:82px' type='submit' value='Refresh'></form></td>
+                <td><form action='/'><input style='font-size:92px' type='submit' value='Refresh'></form></td>
             </tr>
             <tr id='keepMode'>
                 <td>Keep</td>
