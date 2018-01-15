@@ -34,8 +34,8 @@ install:
 before_script:
   # execute all of the commands which need to be executed
   # before running actual tests
-  - mysql -u root -e 'CREATE DATABASE test'
-  - bin/doctrine-migrations migrations:migrate
+#  - mysql -u root -e 'CREATE DATABASE test'
+#  - bin/doctrine-migrations migrations:migrate
 
 # Run script
 script:
