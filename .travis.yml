@@ -14,6 +14,10 @@ env:
 services:
   - mysql
 
+# Update composer
+before-install:
+  - composer self-update
+
 before_script:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - composer self-update
@@ -22,9 +26,20 @@ before_script:
   - app/console doctrine:migrations:migrate --env=test --no-interaction --quiet
   - app/console cache:warmup --env=test --quiet
 
+# Install composer dependencies,
+# Create database, schema and fixtures
+install:
+  - composer install
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
+
+# Run script
 script:
   - ./bin/phpspec run -fpretty --verbose
   - ./bin/behat  --no-snippets --no-paths --verbose
+  - ./vendor/bin/phpunit
 
 notifications:
   email:
