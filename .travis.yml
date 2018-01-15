@@ -14,26 +14,28 @@ env:
 services:
   - mysql
 
-# Update composer
 before-install:
+  # execute all of the commands which need to be executed
+  # before installing dependencies
   - composer self-update
-
-before_script:
-  - cp app/config/parameters.yml.dist app/config/parameters.yml
-  - composer self-update
-  - composer install --dev --no-interaction --prefer-source
-  - app/console doctrine:database:create --env=test --no-interaction --quiet
-  - app/console doctrine:migrations:migrate --env=test --no-interaction --quiet
-  - app/console cache:warmup --env=test --quiet
+  - composer validate
 
 # Install composer dependencies,
 # Create database, schema and fixtures
 install:
-  - composer install
+  # install all of the dependencies you need here
+  - composer install --prefer-dist
+#  - composer install --dev --no-interaction --prefer-source
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:create --env=test
   - php bin/console doctrine:fixtures:load -n --env=test
+
+before_script:
+  # execute all of the commands which need to be executed
+  # before running actual tests
+  - mysql -u root -e 'CREATE DATABASE test'
+  - bin/doctrine-migrations migrations:migrate
 
 # Run script
 script:
