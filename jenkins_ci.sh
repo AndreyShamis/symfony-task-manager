@@ -1,4 +1,3 @@
-#!/bin/bash
 info() {
   echo "\033[1;33m[Info]    $1  \033[0m"
 }
@@ -33,5 +32,14 @@ success "ls"
 ls -l
 
 success ""
+#sudo apt-get install php7.0-zip
 #"sudo apt-get install php7.0-xml"
 composer  -vvv update
+info "Check that the composer.json for different errors, like autoload issue:"
+composer validate --no-check-all
+#composer validate --no-check-all --strict  # TODO
+success " ----> Check that the composer.json for different errors, like autoload issue <----"
+info "Check the composer.lock for security issues"
+php vendor/bin/security-checker security:check
+
+#./vendor/bin/simple-phpunit
