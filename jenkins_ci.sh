@@ -13,7 +13,7 @@ success() {
 }
 
 
-set -x
+
 info "Print composer info"
 
 success "Composer version: "
@@ -28,12 +28,9 @@ success "Validates a composer.json and composer.lock: "
 composer -vvv validate
 #"cd /usr/share; ln -s php/data ."
 success "***************************** Composer validation finished *****************************"
-set +x
-
-success "ls"
 ls -l
-
-success ""
+success "ls"
+#----------------------------------------------------------------------------------------------------------------------------
 #sudo apt-get install php7.0-zip
 #"sudo apt-get install php7.0-xml"
 composer  -vvv update
