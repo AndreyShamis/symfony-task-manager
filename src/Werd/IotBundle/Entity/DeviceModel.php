@@ -22,7 +22,7 @@ class DeviceModel
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Werd\IotBundle\Entity\Device", mappedBy="setup",fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="Werd\IotBundle\Entity\Device", mappedBy="model", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="device",fieldName="id" , referencedColumnName="id", onDelete="SET NULL" )
      * ORM\OrderBy({"id" = "ASC"})
      */
