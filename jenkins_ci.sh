@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -x
+#!/bin/bash -xe
 
 info() {
   echo -e "\033[1;33m[Info]    $1  \033[0m"
@@ -41,4 +41,19 @@ success " ----> Check that the composer.json for different errors, like autoload
 info "Check the composer.lock for security issues"
 php vendor/bin/security-checker security:check
 
-#./vendor/bin/simple-phpunit
+#info "Start Check DataBase"
+#php bin/console doctrine:schema:validate -e=prod
+#success "Finish Check DataBase"
+
+info "Start Check YAML files"
+php bin/console lint:yaml app/config/
+php bin/console lint:yaml src/WerdGameBundle/Resources/config/
+php bin/console lint:yaml src/Werd/FinanceBundle/Resources/config/
+php bin/console lint:yaml src/Werd/IotBundle/Resources/config/
+php bin/console lint:yaml src/Werd/TesterBundle/Resources/config/
+success "Finish Check YAML files"
+
+info "Start unittests"
+#sudo apt install php7.0-mbstring
+./vendor/bin/simple-phpunit
+success "Finish unittests"
