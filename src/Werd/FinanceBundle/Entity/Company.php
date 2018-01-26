@@ -52,7 +52,7 @@ class Company
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="founded", type="datetimetz")
+     * @ORM\Column(name="founded", type="datetime")
      */
     private $founded;
 
