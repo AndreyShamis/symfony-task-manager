@@ -3,6 +3,14 @@ werd_game:
     type:     annotation
     prefix:   /
 
+iot:
+    resource: "@IotBundle/Resources/config/routing.xml"
+    prefix:   /iot
+
+tester:
+    resource: "@TesterBundle/Resources/config/routing.xml"
+    prefix:   /tester
+
 iot_boiler_view_only:
     resource: "@IotBundle/Controller/BoilerViewOnlyController.php"
     type:     annotation
@@ -13,22 +21,6 @@ iot_test:
 
 iot_device_model:
     resource: "@IotBundle/Controller/DeviceModelController.php"
-    type:     annotation
-
-iot_device_model:
-    resource: "@IotBundle/Controller/DeviceModelController.php"
-    type:     annotation
-
-iot_device_model:
-    resource: "@IotBundle/Controller/DeviceModelController.php"
-    type:     annotation
-
-iot_device:
-    resource: "@IotBundle/Controller/DeviceController.php"
-    type:     annotation
-
-iot_device:
-    resource: "@IotBundle/Controller/DeviceController.php"
     type:     annotation
 
 iot_device:
@@ -62,13 +54,6 @@ tester_action_verdict:
 tester_action:
     resource: "@TesterBundle/Controller/ActionController.php"
     type:     annotation
-iot:
-    resource: "@IotBundle/Resources/config/routing.xml"
-    prefix:   /iot
-
-tester:
-    resource: "@TesterBundle/Resources/config/routing.xml"
-    prefix:   /tester
 
 werd_finance_stock_data:
     resource: "@WerdFinanceBundle/Controller/StockDataController.php"
@@ -81,7 +66,3 @@ werd_finance_company:
 werd_finance:
     resource: "@WerdFinanceBundle/Resources/config/routing.php"
     prefix:   /finance
-
-app:
-    resource: "@AppBundle/Controller/"
-    prefix:   /

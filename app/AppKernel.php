@@ -15,12 +15,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
-            new Werd\FinanceBundle\WerdFinanceBundle(),
-            new Werd\TesterBundle\TesterBundle(),
-            new Werd\IotBundle\IotBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new WerdGameBundle\WerdGameBundle(),
+            new Werd\IotBundle\IotBundle(),
+            new Werd\TesterBundle\TesterBundle(),
+            new Werd\FinanceBundle\WerdFinanceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

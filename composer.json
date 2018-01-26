@@ -4,7 +4,12 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "WerdGameBundle\\": "src/", "Werd\\": "src/" },
+        "psr-4": {
+            "WerdGameBundle\\": "src/WerdGameBundle",
+            "Werd\\IotBundle\\": "src/Werd/IotBundle",
+            "Werd\\TesterBundle\\": "src/Werd/TesterBundle",
+            "Werd\\FinanceBundle\\": "src/Werd/FinanceBundle"
+        },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
