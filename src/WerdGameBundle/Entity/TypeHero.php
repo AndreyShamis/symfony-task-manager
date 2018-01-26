@@ -3,7 +3,6 @@
 namespace WerdGameBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use WerdGameBundle\Entity\TypeHeroRace;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
@@ -44,49 +43,49 @@ class TypeHero
     /**
      * @var float
      *
-     * @ORM\Column(name="power_attack", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_attack", type="float", options={"default"=0})
      */
     private $powerAttack;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_attack_speed", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_attack_speed", type="float", options={"default"=0})
      */
     private $powerAttackSpeed;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_attack_accuracy", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_attack_accuracy", type="float", options={"default"=0})
      */
     private $powerAttackAccuracy;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_defense", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_defense", type="float", options={"default"=0})
      */
     private $powerDefense;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_defense_agility", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_defense_agility", type="float", options={"default"=0})
      */
     private $powerDefenseAgility;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_movement", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_movement", type="float", options={"default"=0})
      */
     private $powerMovement;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="power_accuracy", type="float", options={"unsigned"=true, "default"=0})
+     * @ORM\Column(name="power_accuracy", type="float", options={"default"=0})
      */
     private $powerAccuracy;
 
