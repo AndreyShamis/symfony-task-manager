@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * StockData
  *
- * @ORM\Table(name="stock_data")
+ * @ORM\Table(name="finance_stock_data")
  * @ORM\Entity(repositoryClass="Werd\FinanceBundle\Repository\StockDataRepository")
  */
 class StockData

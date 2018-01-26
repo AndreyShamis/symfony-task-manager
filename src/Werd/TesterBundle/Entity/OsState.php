@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OsState
  *
- * @ORM\Table(name="os_state")
+ * @ORM\Table(name="tester_os_state")
  * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\OsStateRepository")
  */
 class OsState

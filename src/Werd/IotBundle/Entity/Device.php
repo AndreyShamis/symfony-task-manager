@@ -7,7 +7,7 @@ use Werd\IotBundle\Entity\DeviceModel;
 /**
  * Device
  *
- * @ORM\Table(name="device")
+ * @ORM\Table(name="iot_device")
  * @ORM\Entity(repositoryClass="Werd\IotBundle\Repository\DeviceRepository")
  */
 class Device
@@ -148,14 +148,14 @@ class Device
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="last_seen", type="datetime", nullable=true)
+     * @ORM\Column(name="last_seen", type="datetime")
      */
     private $lastSeen;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="added_date", type="datetime", nullable=true)
+     * @ORM\Column(name="added_date", type="datetime")
      */
     private $addedDate;
 

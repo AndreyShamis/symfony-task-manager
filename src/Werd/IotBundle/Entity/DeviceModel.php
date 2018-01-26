@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DeviceModel
  *
- * @ORM\Table(name="device_model")
+ * @ORM\Table(name="iot_device_model")
  * @ORM\Entity(repositoryClass="Werd\IotBundle\Repository\DeviceModelRepository")
  */
 class DeviceModel

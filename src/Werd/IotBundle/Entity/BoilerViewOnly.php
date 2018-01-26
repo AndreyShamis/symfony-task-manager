@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * BoilerViewOnly
  *
- * @ORM\Table(name="boiler_view_only")
+ * @ORM\Table(name="iot_boiler_view_only")
  * @ORM\Entity(repositoryClass="Werd\IotBundle\Repository\BoilerViewOnlyRepository")
  */
 class BoilerViewOnly

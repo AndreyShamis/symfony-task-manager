@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Action
  *
- * @ORM\Table(name="action")
+ * @ORM\Table(name="tester_action")
  * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\ActionRepository")
  */
 class Action

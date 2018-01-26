@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PromptState
  *
- * @ORM\Table(name="prompt_state")
+ * @ORM\Table(name="tester_prompt_state")
  * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\PromptStateRepository")
  */
 class PromptState

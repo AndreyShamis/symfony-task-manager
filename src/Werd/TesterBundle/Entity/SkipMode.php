@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * SkipMode
  *
- * @ORM\Table(name="skip_mode")
+ * @ORM\Table(name="tester_skip_mode")
  * @ORM\Entity(repositoryClass="Werd\TesterBundle\Repository\SkipModeRepository")
  */
 class SkipMode

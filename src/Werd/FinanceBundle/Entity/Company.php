@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Company
  *
- * @ORM\Table(name="company")
+ * @ORM\Table(name="finance_company")
  * @ORM\Entity(repositoryClass="Werd\FinanceBundle\Repository\CompanyRepository")
  */
 class Company
@@ -52,7 +52,7 @@ class Company
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="founded", type="datetimetz", nullable=true)
+     * @ORM\Column(name="founded", type="datetimetz")
      */
     private $founded;
 
