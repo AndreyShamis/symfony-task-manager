@@ -30,7 +30,7 @@ class Device
 
     /**
      * @ORM\ManyToOne(targetEntity="Werd\IotBundle\Entity\DeviceModel", inversedBy="device")
-     * @ORM\JoinColumn(name="model",fieldName="id" , referencedColumnName="id", onDelete="SET NULL" )
+     * @ORM\JoinColumn(name="model_id",fieldName="id" , referencedColumnName="id", onDelete="SET NULL" )
      */
     protected $model;
     /**
@@ -41,14 +41,14 @@ class Device
     private $hostName;
 
     /**
-     * @var smallint
+     * @var integer
      *
      * @ORM\Column(name="wifi_channel", type="smallint", options={"unsigned"=true})
      */
     private $wifi_channel = 0;
 
     /**
-     * @var smallint
+     * @var integer
      *
      * @ORM\Column(name="wifi_rssi", type="smallint", options={"unsigned"=true})
      */
@@ -192,30 +192,6 @@ class Device
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set macAddr
-     *
-     * @param string $macAddr
-     *
-     * @return Device
-     */
-    public function setMacAddr($macAddr)
-    {
-        $this->macAddr = $macAddr;
-
-        return $this;
-    }
-
-    /**
-     * Get macAddr
-     *
-     * @return string
-     */
-    public function getMacAddr()
-    {
-        return $this->macAddr;
     }
 
     /**
@@ -653,11 +629,11 @@ class Device
     /**
      * Set model
      *
-     * @param \Werd\IotBundle\Entity\Devicemodel $model
+     * @param \Werd\IotBundle\Entity\DeviceModel $model
      *
      * @return Device
      */
-    public function setModel(\Werd\IotBundle\Entity\Devicemodel $model = null)
+    public function setModel(\Werd\IotBundle\Entity\DeviceModel $model = null)
     {
         $this->model = $model;
 
@@ -667,7 +643,7 @@ class Device
     /**
      * Get model
      *
-     * @return \Werd\IotBundle\Entity\Devicemodel
+     * @return \Werd\IotBundle\Entity\DeviceModel
      */
     public function getModel()
     {

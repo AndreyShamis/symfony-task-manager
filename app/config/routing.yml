@@ -15,10 +15,6 @@ iot_boiler_view_only:
     resource: "@IotBundle/Controller/BoilerViewOnlyController.php"
     type:     annotation
 
-iot_test:
-    resource: "@IotBundle/Controller/TestController.php"
-    type:     annotation
-
 iot_device_model:
     resource: "@IotBundle/Controller/DeviceModelController.php"
     type:     annotation
