@@ -6,7 +6,7 @@
 {% set url = app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getPathInfo %}
 <ul class="nav nav-list  nav-sidebar">
     <li class="{% if route == 'default_index' %}active{% endif %}">
-        <a href="{{ url}}">
+        <a href="{{ url }}">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text">Home</span>
         </a>
