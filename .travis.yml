@@ -40,8 +40,13 @@ before_script:
 
 # Run script
 script:
-#  - ./bin/phpspec run -fpretty --verbose
-#  - ./bin/behat  --no-snippets --no-paths --verbose
+  - composer validate --no-check-all --strict  # TODO
+  - php vendor/bin/security-checker security:check
+  - php bin/console lint:yaml app/config/
+  - php bin/console lint:yaml src/WerdGameBundle/Resources/config/
+  - php bin/console lint:yaml src/Werd/FinanceBundle/Resources/config/
+  - php bin/console lint:yaml src/Werd/IotBundle/Resources/config/
+  - php bin/console lint:yaml src/Werd/TesterBundle/Resources/config/
   - ./vendor/bin/simple-phpunit
 
 notifications:

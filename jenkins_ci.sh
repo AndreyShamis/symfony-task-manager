@@ -15,9 +15,12 @@ success() {
 
 
 info "Print composer info"
-
-success "Composer version: "
 composer -V
+info "Composer selfupdate"
+composer selfupdate
+info "Print composer info"
+composer -V
+
 success "Composer about: "
 composer about
 success "Composer Shows information about packages: "
