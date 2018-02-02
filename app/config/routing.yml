@@ -1,11 +1,21 @@
 werd_game:
     resource: "@WerdGameBundle/Controller/"
     type:     annotation
+    host:     "game.anshamis.com"
     prefix:   /
+#    defaults:
+#        domain: anshamis.com
+#    requirements:
+#        domain: anshamis.com
 
 iot:
     resource: "@IotBundle/Resources/config/routing.xml"
-    prefix:   /iot
+    host:     "iot.anshamis.com"
+    prefix:   /
+
+werd_finance:
+    resource: "@WerdFinanceBundle/Resources/config/routing.php"
+    prefix:   /finance
 
 tester:
     resource: "@TesterBundle/Resources/config/routing.xml"
@@ -59,6 +69,3 @@ werd_finance_company:
     resource: "@WerdFinanceBundle/Controller/CompanyController.php"
     type:     annotation
 
-werd_finance:
-    resource: "@WerdFinanceBundle/Resources/config/routing.php"
-    prefix:   /finance
