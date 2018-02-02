@@ -40,7 +40,7 @@ before_script:
 
 # Run script
 script:
-  - ./bin/phpspec run -fpretty --verbose
+#  - ./bin/phpspec run -fpretty --verbose
 #  - ./bin/behat  --no-snippets --no-paths --verbose
   - ./vendor/bin/simple-phpunit
 
