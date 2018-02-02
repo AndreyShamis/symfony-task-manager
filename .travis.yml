@@ -41,7 +41,8 @@ before_script:
 # Run script
 script:
   - composer validate --no-check-all --strict  # TODO
-  - php vendor/bin/security-checker security:check
+#  An error occurred: gnutls_handshake() failed: Handshake failed.
+#  - php vendor/bin/security-checker security:check
   - php bin/console lint:yaml app/config/
   - php bin/console lint:yaml src/WerdGameBundle/Resources/config/
   - php bin/console lint:yaml src/Werd/FinanceBundle/Resources/config/
