@@ -6,7 +6,7 @@
 {% set url = app.request.scheme ~'://' ~  app.request.httpHost %}
 <ul class="nav nav-list  nav-sidebar">
     <li class="{% if route == 'default_index' %}active{% endif %}">
-        <a href="{{ url }}">
+        <a href="{{ url}}">
             <i class="menu-icon fa fa-tachometer"></i>
             <span class="menu-text">Home</span>
         </a>
@@ -47,10 +47,10 @@
     <b class="arrow"></b>
     </li>
 
-    {#<li class="{% if route starts with 'cq_' %}active{% endif %}">#}
+    {#<li class="{% if route starts with 'qcc_' %}active{% endif %}">#}
     {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}" >#}
     {#<i class="menu-icon fa fa-pencil-square-o"></i>#}
-    {#<span class="menu-text"> CQ </span>#}
+    {#<span class="menu-text"> QCC </span>#}
     {#</a>#}
     {#<b class="arrow"></b>#}
     {#</li>#}
@@ -75,7 +75,7 @@
     {#</li>#}
 
     {# ################################### Controll ################################### #}
-    <li class="{% if route in ['wlogsetupbuild_index','wlogsetup_edit','wlogsetupbuild_show','wlogsetup_index','wlogsetup_show','dca','usecasename','usecasename_show','usecasename_edit','actionresultdescription','actionparameter','actionname','platform','adapter','os','poa','poa_show','poa_index','core','core_index','core_show'] %}active{% endif %}">
+    <li class="{% if route in ['types','types_index','types_show'] %}active{% endif %}">
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-desktop"></i>
             <span class="menu-text">Controll </span>
@@ -85,21 +85,19 @@
 
         <ul class="submenu ">
             <li class="
-{% if route starts with 'platform' %}active{% endif %}
-{% if route starts with 'adapter' %}active{% endif %}
-{% if route starts with 'os' %}active{% endif %}
-{% if route starts with 'poa' %}active{% endif %}
-{% if route starts with 'core' %}active{% endif %}
+{% if route starts with 'types' %}active{% endif %}
+{% if route starts with 'help' %}active{% endif %}
+{% if route starts with 'tepes_' %}active{% endif %}
 ">
                 <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-caret-right"></i>POA
+                    <i class="menu-icon fa fa-caret-right"></i>Types
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
                 <b class="arrow"></b>
                 <ul class="submenu">
                     <li class="{% if route starts with 'platform' %}active{% endif %}">
                         <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">
-                            <i class="menu-icon fa fa-caret-right"></i>Users
+                            <i class="menu-icon fa fa-caret-right"></i>Mine Types
                         </a>
                         <b class="arrow"></b>
                     </li>
@@ -109,24 +107,12 @@
                         </a>
                         <b class="arrow"></b>
                     </li>
-                    <li class="{% if route starts with 'os' %}active{% endif %}">
-                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">
-                            <i class="menu-icon fa fa-caret-right"></i>OS
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
-                    <li class="{% if route starts with 'poa_' %}active{% endif %}">
-                        <a href="{{app.request.scheme ~'://' ~ app.request.httpHost }}">
-                            <i class="menu-icon fa fa-caret-right"></i>POA
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
                 </ul>
             </li>
 
             <li class="{% if route starts with 'dca' %}active{% endif %}">
                 <a href="{{app.request.scheme ~'://' ~ app.request.httpHost  }}">
-                    <i class="menu-icon fa fa-caret-right"></i>DCA
+                    <i class="menu-icon fa fa-caret-right"></i>Help
                 </a>
                 <b class="arrow"></b>
             </li>
@@ -138,15 +124,15 @@
             {#<b class="arrow"></b>#}
             {#</li>#}
 
-            {#<li class="{% if route starts with 'wlogsetupbuild_' %}active{% endif %}">#}
-            {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetupbuild_index') }}">#}
-            {#<i class="menu-icon fa fa-caret-right"></i>Wlog Setup Builds#}
+            {#<li class="{% if route starts with 'wwwsetupbuild_' %}active{% endif %}">#}
+            {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wwwsetupbuild_index') }}">#}
+            {#<i class="menu-icon fa fa-caret-right"></i>www Setup Builds#}
             {#</a>#}
             {#<b class="arrow"></b>#}
             {#</li>#}
-            {#<li class="{% if route starts with 'wlogsetup_' %}active{% endif %}">#}
-            {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wlogsetup_index') }}">#}
-            {#<i class="menu-icon fa fa-caret-right"></i>Wlog Setups#}
+            {#<li class="{% if route starts with 'wwwsetup_' %}active{% endif %}">#}
+            {#<a href="{{app.request.scheme ~'://' ~ app.request.httpHost ~ path('wwwsetup_index') }}">#}
+            {#<i class="menu-icon fa fa-caret-right"></i>www Setups#}
             {#</a>#}
             {#<b class="arrow"></b>#}
             {#</li>#}
