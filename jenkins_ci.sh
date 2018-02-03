@@ -61,5 +61,5 @@ success "Finish Check YAML files"
 info "Start unittests"
 
 #sudo apt install php7.0-mbstring
-./vendor/bin/simple-phpunit || ./vendor/bin/simple-phpunit
+./vendor/bin/simple-phpunit
 success "Finish unittests"
