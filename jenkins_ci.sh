@@ -17,7 +17,7 @@ success() {
 info "Print composer info"
 composer -V
 info "Composer selfupdate"
-composer selfupdate
+composer selfupdate || true
 info "Print composer info"
 composer -V
 
@@ -43,7 +43,8 @@ composer validate --no-check-all --strict  # TODO
 success " ----> Check that the composer.json for different errors, like autoload issue <----"
 info "Check the composer.lock for security issues"
 php vendor/bin/security-checker security:check
-
+info "Adding symfony/phpunit-bridge"
+composer require  symfony/phpunit-bridge
 #info "Start Check DataBase"
 #php bin/console doctrine:schema:validate -e=prod
 #success "Finish Check DataBase"
@@ -56,7 +57,9 @@ php bin/console lint:yaml src/Werd/IotBundle/Resources/config/
 php bin/console lint:yaml src/Werd/TesterBundle/Resources/config/
 success "Finish Check YAML files"
 
+
 info "Start unittests"
+
 #sudo apt install php7.0-mbstring
-./vendor/bin/simple-phpunit
+./vendor/bin/simple-phpunit || ./vendor/bin/simple-phpunit
 success "Finish unittests"
