@@ -1,8 +1,11 @@
 werd_game:
     resource: "@WerdGameBundle/Controller/"
     type:     annotation
-    host:     "game.anshamis.com"
+    host:     "{domain}"
     prefix:   /
+    requirements:
+        domain: game.anshamis.com|game.localhost
+    defaults: { domain: game.anshamis.com }
 #    defaults:
 #        domain: anshamis.com
 #    requirements:
