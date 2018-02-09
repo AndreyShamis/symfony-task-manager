@@ -30,7 +30,8 @@
 
 
     <li class="{% if route starts with 'user_' %}active{% endif %}">
-        <a href="{{absolute_url(asset(('user')))}}">
+        {#<a href="{{absolute_url(asset(('user')))}}">#}
+        <a href="{{asset(path('user_index'))}}">
             <i class="menu-icon fa fa-list-alt"></i>
             <span class="menu-text bigger-120"> Users </span>
         </a>
