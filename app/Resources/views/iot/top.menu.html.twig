@@ -27,14 +27,14 @@
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo" src="{{app.request.scheme ~'://' ~  app.request.httpHost ~  app.request.getBaseURL }}/assets/avatars/mycomputer.png" alt="User Photo" />
                             <span class="user-info">
-									<small>Welcome,</small>
+                                <small>Welcome,</small>
                                 {#{% if admin_service.isAdmin != 1 %}#}
                                     {#User#}
                                 {#{% endif %}#}
                                 {#{% if admin_service.isAdmin == 1 %}#}
                                     {#Admin#}
                                 {#{% endif %}#}
-								{#</span>#}
+                            </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
                     </a>
