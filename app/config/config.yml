@@ -33,7 +33,12 @@ framework:
     http_method_override: true
     assets: ~
     php_errors:
+
         log: true
+    assets:
+        base_path: /
+        #base_urls: ['http://game.localhost/', 'http://game.anshamis.com/']
+
 
 # Twig Configuration
 twig:

@@ -109,7 +109,10 @@
 											</span>
                                             Welcome to THE GAME site
                                         </h1>
-
+                                        {% for key, value in _context  %}
+                                            <h2>{{ key }}</h2>
+                                            {{ dump(value) }}
+                                        {% endfor %}
                                         <hr />
                                         <h3 class="lighter smaller">Site under construction</h3>
 

@@ -12,9 +12,25 @@
         </a>
         <b class="arrow"></b>
     </li>
+    {#{{asset(('user'))}}#}
+    {#<br/>#}
+    {#<br/>#}
+    {#{{(path('user_index'))}}#}
+    {#<br/>#}
+    {#<br/>#}
+    {#{{asset(path('user_index'))}}#}
+
+    {#{{absolute_url(asset(('user')))}}#}
+    {#<br/>#}
+    {#<br/>#}
+    {#{{absolute_url(path('user_index'))}}#}
+    {#<br/>#}
+    {#<br/>#}
+    {#{{absolute_url(asset(path('user_index')))}}#}
+
 
     <li class="{% if route starts with 'user_' %}active{% endif %}">
-        <a href="{{asset(path('user_index'))}}">
+        <a href="{{absolute_url(asset(('user')))}}">
             <i class="menu-icon fa fa-list-alt"></i>
             <span class="menu-text bigger-120"> Users </span>
         </a>
